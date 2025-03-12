@@ -1,0 +1,145 @@
+﻿<Window x:Class="kyrsachVPKS.Windows.Users.Avtorizacia"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:kyrsachVPKS"
+        mc:Ignorable="d" 
+        
+        Title="Авторизация" Background="#E3F7FF" WindowStartupLocation="CenterScreen"
+        MaxHeight="550" Height="530" MinHeight="510" Icon="\Images\Todo.png"
+        MaxWidth="765" Width="745" MinWidth="725">
+    <Window.Resources>
+        <local:StringToVisibilityConverter x:Key="StringToVisibilityConverter"/>
+        <!--Стиль для TextBox-->
+        <Style x:Key="TextBoxStyle" TargetType="TextBox">
+            <Setter Property="Height" Value="36" />
+            <Setter Property="Width" Value="230" />
+            <Setter Property="FontSize" Value="18" />
+            <Setter Property="Padding" Value="10,3,5,3" />
+            <Setter Property="Background" Value="White" />
+            <Setter Property="BorderBrush" Value="#0F75BC" />
+            <Setter Property="BorderThickness" Value="2" />
+            <Setter Property="Foreground" Value="Black" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="TextBox">
+                        <Border CornerRadius="10" Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}" 
+                                BorderThickness="{TemplateBinding BorderThickness}">
+                            <ScrollViewer x:Name="PART_ContentHost"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <!--Стиль для Button-->
+        <Style x:Key="ButtonStyle" TargetType="Button">
+            <Setter Property="Width" Value="170" />
+            <Setter Property="Height" Value="42" />
+            <Setter Property="FontFamily" Value="Montserrat" />
+            <Setter Property="FontSize" Value="16" />
+            <Setter Property="FontWeight" Value="SemiBold" />
+            <Setter Property="Background" Value="#0F75BC" />
+            <Setter Property="BorderBrush" Value="#0F75BC"/>
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="FontFamily" Value="Montserrat"/>
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" 
+                                BorderBrush="{TemplateBinding BorderBrush}" 
+                                BorderThickness="{TemplateBinding BorderThickness}" 
+                                CornerRadius="10">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" 
+                                              Content="{TemplateBinding Content}"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#2b89cc" />
+                </Trigger>
+                <Trigger Property="IsPressed" Value="True">
+                    <Setter Property="Background" Value="#0e64a1" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="140"/>
+            <RowDefinition Height="90"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="70"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Image Source="\Images\Todo.png" Height="120" Width="120" Grid.Row="0" Grid.ColumnSpan="2" 
+               HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
+        <TextBlock Text="Авторизация" HorizontalAlignment="Center" VerticalAlignment="Center"
+               FontFamily="Montserrat" FontSize="40" FontWeight="Bold" Grid.Row="1"
+               Grid.ColumnSpan="3"/>
+        <TextBox x:Name="LogTB" Grid.Row="2" Grid.ColumnSpan="2" 
+                 HorizontalAlignment="Center" VerticalAlignment="Center"  Width="350"
+                 Style="{StaticResource TextBoxStyle}"/>
+        <TextBlock Grid.Row="2" Grid.Column="0" FontFamily="Montserrat"
+                   Text="Логин" Foreground="Gray" FontSize="18" VerticalAlignment="Center" 
+                   HorizontalAlignment="Right" Margin="0,0,111,0" IsHitTestVisible="False" 
+                   Visibility="{Binding Text, ElementName=LogTB, Converter={StaticResource StringToVisibilityConverter}}"/>
+        <TextBox x:Name="PassTB" Grid.Row="3" Grid.ColumnSpan="2" 
+                 HorizontalAlignment="Center" VerticalAlignment="Center"  Width="350"
+                 Style="{StaticResource TextBoxStyle}"/>
+        <TextBlock Grid.Row="3" Grid.Column="0" FontFamily="Montserrat"
+                   Text="Пароль" Foreground="Gray" FontSize="18" VerticalAlignment="Center" 
+                   HorizontalAlignment="Right" Margin="0,0,101,0" IsHitTestVisible="False" 
+                   Visibility="{Binding Text, ElementName=PassTB, Converter={StaticResource StringToVisibilityConverter}}"/>
+        <Button Style="{StaticResource ButtonStyle}" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2"
+                HorizontalAlignment="Center" VerticalAlignment="Center" Content="Войти" Click="Avtoriz_Click"/>
+        <TextBlock Grid.Row="5" Grid.Column="0" FontFamily="Montserrat" FontWeight="Medium"
+           Foreground="#0F75BC" FontSize="18" VerticalAlignment="Top" 
+           HorizontalAlignment="Right" Margin="0,10,30,0" FontStyle="Italic">
+    <Hyperlink >
+        <Run Text="Забыли пароль?"/>
+        <Hyperlink.Style>
+            <Style TargetType="Hyperlink">
+                <Setter Property="Foreground" Value="#0F75BC"/>
+                <Setter Property="TextDecorations" Value="Underline"/>
+                <Style.Triggers>
+                    <Trigger Property="IsMouseOver" Value="True">
+                        <Setter Property="Foreground" Value="#368fcf"/>
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+        </Hyperlink.Style>
+    </Hyperlink>
+        </TextBlock>
+
+
+        <TextBlock Grid.Row="5" Grid.Column="1" FontFamily="Montserrat" FontWeight="Medium"
+                   Foreground="#0F75BC" FontSize="18" VerticalAlignment="Top" 
+                   HorizontalAlignment="Left" Margin="30,10,0,0" FontStyle="Italic">
+    <Hyperlink Click="Register_Click" >
+        <Run Text="Нет аккаунта?"/>
+        <Hyperlink.Style>
+            <Style TargetType="Hyperlink">
+                <Setter Property="Foreground" Value="#0F75BC"/>
+                <Setter Property="TextDecorations" Value="Underline"/>
+                <Style.Triggers>
+                    <Trigger Property="IsMouseOver" Value="True">
+                        <Setter Property="Foreground" Value="#368fcf"/>
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+        </Hyperlink.Style>
+    </Hyperlink>
+        </TextBlock>
+    </Grid>
+</Window>

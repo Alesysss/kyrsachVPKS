@@ -1,0 +1,794 @@
+﻿<Window x:Class="kyrsachVPKS.Windows.Users.Registracia"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:kyrsachVPKS"
+        mc:Ignorable="d"
+        Title="Регистрация" Background="#E3F7FF" WindowStartupLocation="CenterScreen"
+        MaxHeight="550" Height="530" MinHeight="510" Icon="\Images\Todo.png"
+        MaxWidth="765" Width="745" MinWidth="725">
+    <Window.Resources>
+        <!--Стиль для TextBox-->
+        <Style x:Key="TextBoxStyle" TargetType="TextBox">
+            <Setter Property="Height" Value="30" />
+            <Setter Property="Width" Value="150" />
+            <Setter Property="FontSize" Value="12" />
+            <Setter Property="Padding" Value="7,5,7,5" />
+            <Setter Property="Background" Value="White" />
+            <Setter Property="BorderBrush" Value="#0F75BC" />
+            <Setter Property="BorderThickness" Value="2" />
+            <Setter Property="Foreground" Value="Black" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="TextBox">
+                        <Border CornerRadius="10" Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}" 
+                                BorderThickness="{TemplateBinding BorderThickness}">
+                            <ScrollViewer x:Name="PART_ContentHost"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <!--Стиль для Button-->
+        <Style x:Key="ButtonStyle" TargetType="Button">
+            <Setter Property="Width" Value="235" />
+            <Setter Property="Height" Value="42" />
+            <Setter Property="FontFamily" Value="Montserrat" />
+            <Setter Property="FontSize" Value="16" />
+            <Setter Property="FontWeight" Value="SemiBold" />
+            <Setter Property="Background" Value="#0F75BC" />
+            <Setter Property="BorderBrush" Value="#0F75BC"/>
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="FontFamily" Value="Montserrat"/>
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" 
+                        BorderBrush="{TemplateBinding BorderBrush}" 
+                        BorderThickness="{TemplateBinding BorderThickness}" 
+                        CornerRadius="10">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" 
+                                      Content="{TemplateBinding Content}"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#2b89cc" />
+                </Trigger>
+                <Trigger Property="IsPressed" Value="True">
+                    <Setter Property="Background" Value="#0e64a1" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Image Source="\Images\Todo.png" Height="50" Width="50" Grid.Row="0" 
+               HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20,0,0,0"/>
+        <TextBlock Text="Регистрация" HorizontalAlignment="Center" VerticalAlignment="Center"
+                   FontFamily="Montserrat" FontSize="37" FontWeight="Bold" Grid.Row="0"/>
+        <TextBlock Grid.Row="0" FontFamily="Montserrat" FontWeight="Medium"
+           Foreground="#596670" FontSize="18" VerticalAlignment="Center"
+           HorizontalAlignment="Right" Margin="0,0,40,0">
+    <Hyperlink Click="Nazad_Click">
+        <Run Text="Х"/>
+        <Hyperlink.Style>
+            <Style TargetType="Hyperlink">
+                <Setter Property="Foreground" Value="#596670"/>
+                <Setter Property="TextDecorations" Value="None"/>
+                <Style.Triggers>
+                    <Trigger Property="IsMouseOver" Value="True">
+                        <Setter Property="Foreground" Value="#8397a6"/>
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+        </Hyperlink.Style>
+    </Hyperlink>
+        </TextBlock>
+
+        <ScrollViewer VerticalScrollBarVisibility="Auto" Grid.Row="1" Grid.RowSpan="7">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="70"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="70"/>
+                    <RowDefinition Height="70"/>
+                    <RowDefinition Height="70"/>
+                    <RowDefinition Height="70"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="70"/>
+                    <RowDefinition Height="70"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="70"/>
+                    <RowDefinition Height="70"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="70"/>
+                    <RowDefinition Height="70"/>
+                    <RowDefinition Height="70"/>
+                    <RowDefinition Height="70"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="70"/>
+                    <RowDefinition Height="70"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="70"/>
+                    <RowDefinition Height="70"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="70"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <!--почта-->
+                <TextBlock Text="*" HorizontalAlignment="Left" Foreground="Red" FontWeight="Bold"
+                           VerticalAlignment="Top" FontFamily="Montserrat" FontSize="12" 
+                           Grid.Row="0" Grid.Column="0" Margin="27,12,0,0"/>
+                <TextBlock Text="Email" HorizontalAlignment="Left" 
+                           VerticalAlignment="Top" FontFamily="Montserrat" FontSize="12" 
+                           Grid.Row="0" Grid.Column="0" Margin="35,12,0,0"/>
+                <TextBox x:Name="EmailTB" Grid.Row="0" Grid.Column="0" 
+                         HorizontalAlignment="Center" VerticalAlignment="Bottom"
+                         Style="{StaticResource TextBoxStyle}" Margin="0,0,0,12"/>
+                
+                <!--номер телефона-->
+                <TextBlock Text="*" HorizontalAlignment="Left" Foreground="Red" FontWeight="Bold"
+                           VerticalAlignment="Top" FontFamily="Montserrat" FontSize="12" 
+                           Grid.Row="0" Grid.Column="1" Margin="27,12,0,0"/>
+                <TextBlock Text="Номер телефона" HorizontalAlignment="Left" 
+                           VerticalAlignment="Top" FontFamily="Montserrat" FontSize="12" 
+                           Grid.Row="0" Grid.Column="1" Margin="35,12,0,0"/>
+                <TextBox x:Name="TelefonTB" Grid.Row="0" Grid.Column="1" 
+                         HorizontalAlignment="Center" VerticalAlignment="Bottom"
+                         Style="{StaticResource TextBoxStyle}" Margin="0,0,0,12"/>
+                
+                <!--Пароль-->
+                <TextBlock Text="*" HorizontalAlignment="Left" Foreground="Red" FontWeight="Bold"
+                           VerticalAlignment="Top" FontFamily="Montserrat" FontSize="12" 
+                           Grid.Row="0" Grid.Column="2" Margin="27,12,0,0"/>
+                <TextBlock Text="Пароль" HorizontalAlignment="Left" 
+                           VerticalAlignment="Top" FontFamily="Montserrat" FontSize="12" 
+                           Grid.Row="0" Grid.Column="2" Margin="35,12,0,0"/>
+                <TextBox x:Name="PasswordTB" Grid.Row="0" Grid.Column="2" 
+                         HorizontalAlignment="Center" VerticalAlignment="Bottom"
+                         Style="{StaticResource TextBoxStyle}" Margin="0,0,0,12"/>
+                
+                <!--Подтв пароль-->
+                <TextBlock Text="*" HorizontalAlignment="Left" Foreground="Red" FontWeight="Bold"
+                           VerticalAlignment="Top" FontFamily="Montserrat" FontSize="12" 
+                           Grid.Row="0" Grid.Column="3" Margin="27,12,0,0"/>
+                <TextBlock Text="Подтвердить пароль" HorizontalAlignment="Left" 
+                           VerticalAlignment="Top" FontFamily="Montserrat" FontSize="12" 
+                           Grid.Row="0" Grid.Column="3" Margin="35,12,0,0"/>
+                <TextBox x:Name="DobPasswordTB" Grid.Row="0" Grid.Column="3" 
+                         HorizontalAlignment="Center" VerticalAlignment="Bottom"
+                         Style="{StaticResource TextBoxStyle}" Margin="0,0,0,12"/>
+                
+                <!--ПАСПОРТНЫЕ ДАННЫЕ ОПЕКУНА-->
+                <TextBlock Text="Паспортные данные опекуна:" HorizontalAlignment="Left" 
+                           VerticalAlignment="Bottom" FontFamily="Montserrat" FontSize="20" FontWeight="SemiBold" 
+                           Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="4"  Margin="20,0,0,0"/>
+                
+                <!--имя-->
+                <TextBlock Text="*" HorizontalAlignment="Left" Foreground="Red" FontWeight="Bold"
+                           VerticalAlignment="Top" FontFamily="Montserrat" FontSize="12" 
+                           Grid.Row="2" Grid.Column="0" Margin="27,12,0,0"/>
+                <TextBlock Text="Имя" HorizontalAlignment="Left" 
+                           VerticalAlignment="Top" FontFamily="Montserrat" FontSize="12" 
+                           Grid.Row="2" Grid.Column="0" Margin="35,12,0,0"/>
+                <TextBox x:Name="opImiaTB" Grid.Row="2" Grid.Column="0" 
+                         HorizontalAlignment="Center" VerticalAlignment="Bottom"
+                         Style="{StaticResource TextBoxStyle}" Margin="0,0,0,12"/>
+                
+                <!--фамилия-->
+                <TextBlock Text="*" HorizontalAlignment="Left" Foreground="Red" FontWeight="Bold"
+                           VerticalAlignment="Top" FontFamily="Montserrat" FontSize="12" 
+                           Grid.Row="2" Grid.Column="1" Margin="27,12,0,0"/>
+                <TextBlock Text="Фамилия" HorizontalAlignment="Left" 
+                           VerticalAlignment="Top" FontFamily="Montserrat" FontSize="12" 
+                           Grid.Row="2" Grid.Column="1" Margin="35,12,0,0"/>
+                <TextBox x:Name="opFamTB" Grid.Row="2" Grid.Column="1" 
+                         HorizontalAlignment="Center" VerticalAlignment="Bottom"
+                         Style="{StaticResource TextBoxStyle}" Margin="0,0,0,12"/>
+                
+                <!--отчество-->
+                <TextBlock Text="Отчество" HorizontalAlignment="Left" 
+                           VerticalAlignment="Top" FontFamily="Montserrat" FontSize="12" 
+                           Grid.Row="2" Grid.Column="2" Margin="27,12,0,0"/>
+                <TextBox x:Name="opOtchTB" Grid.Row="2" Grid.Column="2" 
+                         HorizontalAlignment="Center" VerticalAlignment="Bottom"
+                         Style="{StaticResource TextBoxStyle}" Margin="0,0,0,12"/>
+                
+                <!--дата рождения-->
+                <TextBlock Text="*" HorizontalAlignment="Left" Foreground="Red" FontWeight="Bold"
+                           VerticalAlignment="Top" FontFamily="Montserrat" FontSize="12" 
+                           Grid.Row="2" Grid.Column="3" Margin="27,12,0,0"/>
+                <TextBlock Text="Дата рождения" HorizontalAlignment="Left" 
+                           VerticalAlignment="Top" FontFamily="Montserrat" FontSize="12" 
+                           Grid.Row="2" Grid.Column="3" Margin="35,12,0,0"/>
+                <TextBox x:Name="opDataRozTB" Grid.Row="2" Grid.Column="3" 
+                         HorizontalAlignment="Center" VerticalAlignment="Bottom"
+                         Style="{StaticResource TextBoxStyle}" Margin="0,0,0,12"/>
+                
+                <!--пол-->
+                <TextBlock Text="*" HorizontalAlignment="Left" Foreground="Red" FontWeight="Bold"
+           VerticalAlignment="Top" FontFamily="Montserrat" FontSize="12" 
+           Grid.Row="3" Grid.Column="0" Margin="27,12,0,0"/>
+                <TextBlock Text="Пол" HorizontalAlignment="Left" 
+           VerticalAlignment="Top" FontFamily="Montserrat" FontSize="12" 
+           Grid.Row="3" Grid.Column="0" Margin="35,12,0,0"/>
+                <!--ПОЛ!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!-->
+                
+                <!--серия-->
+                <TextBlock Text="*" HorizontalAlignment="Left" Foreground="Red" FontWeight="Bold"
+           VerticalAlignment="Top" FontFamily="Montserrat" FontSize="12" 
+           Grid.Row="3" Grid.Column="1" Margin="27,12,0,0"/>
+                <TextBlock Text="Серия" HorizontalAlignment="Left" 
+           VerticalAlignment="Top" FontFamily="Montserrat" FontSize="12" 
+           Grid.Row="3" Grid.Column="1" Margin="35,12,0,0"/>
+                <TextBox x:Name="opSerTB" Grid.Row="3" Grid.Column="1" 
+         HorizontalAlignment="Center" VerticalAlignment="Bottom"
+         Style="{StaticResource TextBoxStyle}" Margin="0,0,0,12"/>
+                
+                <!--номер-->
+                <TextBlock Text="*" HorizontalAlignment="Left" Foreground="Red" FontWeight="Bold"
+VerticalAlignment="Top" FontFamily="Montserrat" FontSize="12" 
+Grid.Row="3" Grid.Column="2" Margin="27,12,0,0"/>
+                <TextBlock Text="Номер" HorizontalAlignment="Left" 
+           VerticalAlignment="Top" FontFamily="Montserrat" FontSize="12" 
+           Grid.Row="3" Grid.Column="2" Margin="35,12,0,0"/>
+                <TextBox x:Name="opNomTB" Grid.Row="3" Grid.Column="2" 
+         HorizontalAlignment="Center" VerticalAlignment="Bottom"
+         Style="{StaticResource TextBoxStyle}" Margin="0,0,0,12"/>
+                
+                <!--дата выдачи-->
+                <TextBlock Text="*" HorizontalAlignment="Left" Foreground="Red" FontWeight="Bold"
+           VerticalAlignment="Top" FontFamily="Montserrat" FontSize="12" 
+           Grid.Row="3" Grid.Column="3" Margin="27,12,0,0"/>
+                <TextBlock Text="Дата выдачи" HorizontalAlignment="Left" 
+           VerticalAlignment="Top" FontFamily="Montserrat" FontSize="12" 
+           Grid.Row="3" Grid.Column="3" Margin="35,12,0,0"/>
+                <TextBox x:Name="opDataVidTB" Grid.Row="3" Grid.Column="3" 
+         HorizontalAlignment="Center" VerticalAlignment="Bottom"
+         Style="{StaticResource TextBoxStyle}" Margin="0,0,0,12"/>
+                
+                <!--Выдан-->
+                <TextBlock Text="*" HorizontalAlignment="Left" Foreground="Red" FontWeight="Bold"
+VerticalAlignment="Top" FontFamily="Montserrat" FontSize="12" 
+Grid.Row="4" Grid.Column="0" Margin="27,12,0,0"/>
+                <TextBlock Text="Выдан" HorizontalAlignment="Left" 
+           VerticalAlignment="Top" FontFamily="Montserrat" FontSize="12" 
+           Grid.Row="4" Grid.Column="0" Margin="35,12,0,0"/>
+                <TextBox x:Name="opVidanTB" Grid.Row="4" Grid.Column="0" 
+         HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="335"
+         Style="{StaticResource TextBoxStyle}" Margin="0,0,0,12" Grid.ColumnSpan="2"/>
+                
+                <!--Код подраз-->
+                <TextBlock Text="*" HorizontalAlignment="Left" Foreground="Red" FontWeight="Bold"
+           VerticalAlignment="Top" FontFamily="Montserrat" FontSize="12" 
+           Grid.Row="4" Grid.Column="2" Margin="27,12,0,0"/>
+                <TextBlock Text="Код подразделения" HorizontalAlignment="Left" 
+           VerticalAlignment="Top" FontFamily="Montserrat" FontSize="12" 
+           Grid.Row="4" Grid.Column="2" Margin="35,12,0,0"/>
+                <TextBox x:Name="opKodPodrTB" Grid.Row="4" Grid.Column="2" 
+         HorizontalAlignment="Center" VerticalAlignment="Bottom"
+         Style="{StaticResource TextBoxStyle}" Margin="0,0,0,12"/>
+                
+                <!--инн-->
+                <TextBlock Text="*" HorizontalAlignment="Left" Foreground="Red" FontWeight="Bold"
+VerticalAlignment="Top" FontFamily="Montserrat" FontSize="12" 
+Grid.Row="5" Grid.Column="0" Margin="27,12,0,0"/>
+                <TextBlock Text="ИНН" HorizontalAlignment="Left" 
+           VerticalAlignment="Top" FontFamily="Montserrat" FontSize="12" 
+           Grid.Row="5" Grid.Column="0" Margin="35,12,0,0"/>
+                <TextBox x:Name="opINNTB" Grid.Row="5" Grid.Column="0" 
+         HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="335"
+         Style="{StaticResource TextBoxStyle}" Margin="0,0,0,12" Grid.ColumnSpan="2"/>
+                
+                <!--снилс-->
+                <TextBlock Text="*" HorizontalAlignment="Left" Foreground="Red" FontWeight="Bold"
+VerticalAlignment="Top" FontFamily="Montserrat" FontSize="12" 
+Grid.Row="5" Grid.Column="2" Margin="27,12,0,0"/>
+                <TextBlock Text="СНИЛС" HorizontalAlignment="Left" 
+           VerticalAlignment="Top" FontFamily="Montserrat" FontSize="12" 
+           Grid.Row="5" Grid.Column="2" Margin="35,12,0,0"/>
+                <TextBox x:Name="opSNILSTB" Grid.Row="5" Grid.Column="2" 
+         HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="335"
+         Style="{StaticResource TextBoxStyle}" Margin="0,0,0,12" Grid.ColumnSpan="2"/>
+                
+                <!--АДРЕС ПРОПИСКИ ОПЕКУНА-->
+                <TextBlock Text="Адрес прописки опекуна:" HorizontalAlignment="Left" 
+           VerticalAlignment="Bottom" FontFamily="Montserrat" FontSize="20" FontWeight="SemiBold" 
+           Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="4"  Margin="20,0,0,0"/>
+
+                <!--Страна-->
+                <TextBlock Text="*" HorizontalAlignment="Left" Foreground="Red" FontWeight="Bold"
+           VerticalAlignment="Top" FontFamily="Montserrat" FontSize="12" 
+           Grid.Row="7" Grid.Column="0" Margin="27,12,0,0"/>
+                <TextBlock Text="Страна" HorizontalAlignment="Left" 
+           VerticalAlignment="Top" FontFamily="Montserrat" FontSize="12" 
+           Grid.Row="7" Grid.Column="0" Margin="35,12,0,0"/>
+                <TextBox x:Name="opStranaTB" Grid.Row="7" Grid.Column="0" 
+         HorizontalAlignment="Center" VerticalAlignment="Bottom"
+         Style="{StaticResource TextBoxStyle}" Margin="0,0,0,12"/>
+
+                <!--Регион-->
+                <TextBlock Text="Регион" HorizontalAlignment="Left" 
+           VerticalAlignment="Top" FontFamily="Montserrat" FontSize="12" 
+           Grid.Row="7" Grid.Column="1" Margin="27,12,0,0"/>
+                <TextBox x:Name="opRegTB" Grid.Row="7" Grid.Column="1" 
+         HorizontalAlignment="Center" VerticalAlignment="Bottom"
+         Style="{StaticResource TextBoxStyle}" Margin="0,0,0,12"/>
+
+                <!--Город-->
+                <TextBlock Text="*" HorizontalAlignment="Left" Foreground="Red" FontWeight="Bold"
+VerticalAlignment="Top" FontFamily="Montserrat" FontSize="12" 
+Grid.Row="7" Grid.Column="2" Margin="27,12,0,0"/>
+                <TextBlock Text="Город" HorizontalAlignment="Left" 
+           VerticalAlignment="Top" FontFamily="Montserrat" FontSize="12" 
+           Grid.Row="7" Grid.Column="2" Margin="35,12,0,0"/>
+                <TextBox x:Name="opGorodTB" Grid.Row="7" Grid.Column="2" 
+         HorizontalAlignment="Center" VerticalAlignment="Bottom"
+         Style="{StaticResource TextBoxStyle}" Margin="0,0,0,12"/>
+
+                <!--Район-->
+                <TextBlock Text="Район" HorizontalAlignment="Left" 
+           VerticalAlignment="Top" FontFamily="Montserrat" FontSize="12" 
+           Grid.Row="7" Grid.Column="3" Margin="27,12,0,0"/>
+                <TextBox x:Name="opRaionTB" Grid.Row="7" Grid.Column="3" 
+         HorizontalAlignment="Center" VerticalAlignment="Bottom"
+         Style="{StaticResource TextBoxStyle}" Margin="0,0,0,12"/>
+
+                <!--Улица-->
+                <TextBlock Text="*" HorizontalAlignment="Left" Foreground="Red" FontWeight="Bold"
+           VerticalAlignment="Top" FontFamily="Montserrat" FontSize="12" 
+           Grid.Row="8" Grid.Column="0" Margin="27,12,0,0"/>
+                <TextBlock Text="Улица" HorizontalAlignment="Left" 
+           VerticalAlignment="Top" FontFamily="Montserrat" FontSize="12" 
+           Grid.Row="8" Grid.Column="0" Margin="35,12,0,0"/>
+                <TextBox x:Name="opYlTB" Grid.Row="8" Grid.Column="0" 
+         HorizontalAlignment="Center" VerticalAlignment="Bottom"
+         Style="{StaticResource TextBoxStyle}" Margin="0,0,0,12"/>
+
+                <!--Дом-->
+                <TextBlock Text="*" HorizontalAlignment="Left" Foreground="Red" FontWeight="Bold"
+VerticalAlignment="Top" FontFamily="Montserrat" FontSize="12" 
+Grid.Row="8" Grid.Column="1" Margin="27,12,0,0"/>
+                <TextBlock Text="Дом" HorizontalAlignment="Left" 
+           VerticalAlignment="Top" FontFamily="Montserrat" FontSize="12" 
+           Grid.Row="8" Grid.Column="1" Margin="35,12,0,0"/>
+                <TextBox x:Name="opDomTB" Grid.Row="8" Grid.Column="1" 
+         HorizontalAlignment="Center" VerticalAlignment="Bottom"
+         Style="{StaticResource TextBoxStyle}" Margin="0,0,0,12"/>
+
+                <!--Подъезд-->
+                <TextBlock Text="Подъезд" HorizontalAlignment="Left" 
+           VerticalAlignment="Top" FontFamily="Montserrat" FontSize="12" 
+           Grid.Row="8" Grid.Column="2" Margin="27,12,0,0"/>
+                <TextBox x:Name="opPodTB" Grid.Row="8" Grid.Column="2" 
+         HorizontalAlignment="Center" VerticalAlignment="Bottom"
+         Style="{StaticResource TextBoxStyle}" Margin="0,0,0,12"/>
+
+                <!--Квартира-->
+                <TextBlock Text="Квартира" HorizontalAlignment="Left" 
+VerticalAlignment="Top" FontFamily="Montserrat" FontSize="12" 
+Grid.Row="8" Grid.Column="3" Margin="27,12,0,0"/>
+                <TextBox x:Name="opKvTB" Grid.Row="8" Grid.Column="3" 
+         HorizontalAlignment="Center" VerticalAlignment="Bottom"
+         Style="{StaticResource TextBoxStyle}" Margin="0,0,0,12"/>
+                
+                <!--галочка с адресом!!!!!!!!!!!!!!!!!!!!!!!!-->
+                <TextBlock Text="Проживаю по месту прописки" 
+                           HorizontalAlignment="Left" Grid.ColumnSpan="4" 
+VerticalAlignment="Center" FontFamily="Montserrat" FontSize="12" 
+Grid.Row="9" Grid.Column="0" Margin="20,0,0,0"/>
+
+                <!--АДРЕС ФАКТИЧЕСКОГО ПРОЖИВАНИЯ ОПЕКУНА-->
+                <TextBlock Text="Адрес фактического проживания опекуна:" HorizontalAlignment="Left" 
+           VerticalAlignment="Bottom" FontFamily="Montserrat" FontSize="20" FontWeight="SemiBold" 
+           Grid.Row="10" Grid.Column="0" Grid.ColumnSpan="4"  Margin="20,0,0,0"/>
+
+                <!--Факт Страна-->
+                <TextBlock Text="*" HorizontalAlignment="Left" Foreground="Red" FontWeight="Bold"
+           VerticalAlignment="Top" FontFamily="Montserrat" FontSize="12" 
+           Grid.Row="11" Grid.Column="0" Margin="27,12,0,0"/>
+                <TextBlock Text="Страна" HorizontalAlignment="Left" 
+           VerticalAlignment="Top" FontFamily="Montserrat" FontSize="12" 
+           Grid.Row="11" Grid.Column="0" Margin="35,12,0,0"/>
+                <TextBox x:Name="opFaktStranaTB" Grid.Row="11" Grid.Column="0" 
+         HorizontalAlignment="Center" VerticalAlignment="Bottom"
+         Style="{StaticResource TextBoxStyle}" Margin="0,0,0,12"/>
+
+                <!--Факт Регион-->
+                <TextBlock Text="Регион" HorizontalAlignment="Left" 
+           VerticalAlignment="Top" FontFamily="Montserrat" FontSize="12" 
+           Grid.Row="11" Grid.Column="1" Margin="27,12,0,0"/>
+                <TextBox x:Name="opFaktRegTB" Grid.Row="11" Grid.Column="1" 
+         HorizontalAlignment="Center" VerticalAlignment="Bottom"
+         Style="{StaticResource TextBoxStyle}" Margin="0,0,0,12"/>
+
+                <!--Факт Город-->
+                <TextBlock Text="*" HorizontalAlignment="Left" Foreground="Red" FontWeight="Bold"
+VerticalAlignment="Top" FontFamily="Montserrat" FontSize="12" 
+Grid.Row="11" Grid.Column="2" Margin="27,12,0,0"/>
+                <TextBlock Text="Город" HorizontalAlignment="Left" 
+           VerticalAlignment="Top" FontFamily="Montserrat" FontSize="12" 
+           Grid.Row="11" Grid.Column="2" Margin="35,12,0,0"/>
+                <TextBox x:Name="opFaktGorodTB" Grid.Row="11" Grid.Column="2" 
+         HorizontalAlignment="Center" VerticalAlignment="Bottom"
+         Style="{StaticResource TextBoxStyle}" Margin="0,0,0,12"/>
+
+                <!--Факт Район-->
+                <TextBlock Text="Район" HorizontalAlignment="Left" 
+           VerticalAlignment="Top" FontFamily="Montserrat" FontSize="12" 
+           Grid.Row="11" Grid.Column="3" Margin="27,12,0,0"/>
+                <TextBox x:Name="opFaktRaionTB" Grid.Row="11" Grid.Column="3" 
+         HorizontalAlignment="Center" VerticalAlignment="Bottom"
+         Style="{StaticResource TextBoxStyle}" Margin="0,0,0,12"/>
+
+                <!--Факт Улица-->
+                <TextBlock Text="*" HorizontalAlignment="Left" Foreground="Red" FontWeight="Bold"
+           VerticalAlignment="Top" FontFamily="Montserrat" FontSize="12" 
+           Grid.Row="12" Grid.Column="0" Margin="27,12,0,0"/>
+                <TextBlock Text="Улица" HorizontalAlignment="Left" 
+           VerticalAlignment="Top" FontFamily="Montserrat" FontSize="12" 
+           Grid.Row="12" Grid.Column="0" Margin="35,12,0,0"/>
+                <TextBox x:Name="opFaktYlTB" Grid.Row="12" Grid.Column="0" 
+         HorizontalAlignment="Center" VerticalAlignment="Bottom"
+         Style="{StaticResource TextBoxStyle}" Margin="0,0,0,12"/>
+
+                <!--Факт Дом-->
+                <TextBlock Text="*" HorizontalAlignment="Left" Foreground="Red" FontWeight="Bold"
+VerticalAlignment="Top" FontFamily="Montserrat" FontSize="12" 
+Grid.Row="12" Grid.Column="1" Margin="27,12,0,0"/>
+                <TextBlock Text="Дом" HorizontalAlignment="Left" 
+           VerticalAlignment="Top" FontFamily="Montserrat" FontSize="12" 
+           Grid.Row="12" Grid.Column="1" Margin="35,12,0,0"/>
+                <TextBox x:Name="opFaktDomTB" Grid.Row="12" Grid.Column="1" 
+         HorizontalAlignment="Center" VerticalAlignment="Bottom"
+         Style="{StaticResource TextBoxStyle}" Margin="0,0,0,12"/>
+
+                <!--Факт Подъезд-->
+                <TextBlock Text="Подъезд" HorizontalAlignment="Left" 
+           VerticalAlignment="Top" FontFamily="Montserrat" FontSize="12" 
+           Grid.Row="12" Grid.Column="2" Margin="27,12,0,0"/>
+                <TextBox x:Name="opFaktPodTB" Grid.Row="12" Grid.Column="2" 
+         HorizontalAlignment="Center" VerticalAlignment="Bottom"
+         Style="{StaticResource TextBoxStyle}" Margin="0,0,0,12"/>
+
+                <!--Факт Квартира-->
+                <TextBlock Text="Квартира" HorizontalAlignment="Left" 
+VerticalAlignment="Top" FontFamily="Montserrat" FontSize="12" 
+Grid.Row="12" Grid.Column="3" Margin="27,12,0,0"/>
+                <TextBox x:Name="opFaktKvTB" Grid.Row="12" Grid.Column="3" 
+         HorizontalAlignment="Center" VerticalAlignment="Bottom"
+         Style="{StaticResource TextBoxStyle}" Margin="0,0,0,12"/>
+
+                <!--ПАСПОРТНЫЕ ДАННЫЕ УЧЕНИКА-->
+                <TextBlock Text="Паспортные данные ученика:" HorizontalAlignment="Left" 
+                           VerticalAlignment="Bottom" FontFamily="Montserrat" FontSize="20" FontWeight="SemiBold" 
+                           Grid.Row="13" Grid.Column="0" Grid.ColumnSpan="4"  Margin="20,0,0,0"/>
+
+                <!--имя-->
+                <TextBlock Text="*" HorizontalAlignment="Left" Foreground="Red" FontWeight="Bold"
+                           VerticalAlignment="Top" FontFamily="Montserrat" FontSize="12" 
+                           Grid.Row="14" Grid.Column="0" Margin="27,12,0,0"/>
+                <TextBlock Text="Имя" HorizontalAlignment="Left" 
+                           VerticalAlignment="Top" FontFamily="Montserrat" FontSize="12" 
+                           Grid.Row="14" Grid.Column="0" Margin="35,12,0,0"/>
+                <TextBox x:Name="rebImiaTB" Grid.Row="14" Grid.Column="0" 
+                         HorizontalAlignment="Center" VerticalAlignment="Bottom"
+                         Style="{StaticResource TextBoxStyle}" Margin="0,0,0,12"/>
+
+                <!--фамилия-->
+                <TextBlock Text="*" HorizontalAlignment="Left" Foreground="Red" FontWeight="Bold"
+                           VerticalAlignment="Top" FontFamily="Montserrat" FontSize="12" 
+                           Grid.Row="14" Grid.Column="1" Margin="27,12,0,0"/>
+                <TextBlock Text="Фамилия" HorizontalAlignment="Left" 
+                           VerticalAlignment="Top" FontFamily="Montserrat" FontSize="12" 
+                           Grid.Row="14" Grid.Column="1" Margin="35,12,0,0"/>
+                <TextBox x:Name="rebFamTB" Grid.Row="14" Grid.Column="1" 
+                         HorizontalAlignment="Center" VerticalAlignment="Bottom"
+                         Style="{StaticResource TextBoxStyle}" Margin="0,0,0,12"/>
+
+                <!--отчество-->
+                <TextBlock Text="Отчество" HorizontalAlignment="Left" 
+                           VerticalAlignment="Top" FontFamily="Montserrat" FontSize="12" 
+                           Grid.Row="14" Grid.Column="2" Margin="27,12,0,0"/>
+                <TextBox x:Name="rebOtchTB" Grid.Row="14" Grid.Column="2" 
+                         HorizontalAlignment="Center" VerticalAlignment="Bottom"
+                         Style="{StaticResource TextBoxStyle}" Margin="0,0,0,12"/>
+
+                <!--дата рождения-->
+                <TextBlock Text="*" HorizontalAlignment="Left" Foreground="Red" FontWeight="Bold"
+                           VerticalAlignment="Top" FontFamily="Montserrat" FontSize="12" 
+                           Grid.Row="14" Grid.Column="3" Margin="27,12,0,0"/>
+                <TextBlock Text="Дата рождения" HorizontalAlignment="Left" 
+                           VerticalAlignment="Top" FontFamily="Montserrat" FontSize="12" 
+                           Grid.Row="14" Grid.Column="3" Margin="35,12,0,0"/>
+                <TextBox x:Name="rebDataRozTB" Grid.Row="14" Grid.Column="3" 
+                         HorizontalAlignment="Center" VerticalAlignment="Bottom"
+                         Style="{StaticResource TextBoxStyle}" Margin="0,0,0,12"/>
+
+                <!--пол-->
+                <TextBlock Text="*" HorizontalAlignment="Left" Foreground="Red" FontWeight="Bold"
+           VerticalAlignment="Top" FontFamily="Montserrat" FontSize="12" 
+           Grid.Row="15" Grid.Column="0" Margin="27,12,0,0"/>
+                <TextBlock Text="Пол" HorizontalAlignment="Left" 
+           VerticalAlignment="Top" FontFamily="Montserrat" FontSize="12" 
+           Grid.Row="15" Grid.Column="0" Margin="35,12,0,0"/>
+                <!--ПОЛ!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!-->
+
+                <!--серия-->
+                <TextBlock Text="*" HorizontalAlignment="Left" Foreground="Red" FontWeight="Bold"
+           VerticalAlignment="Top" FontFamily="Montserrat" FontSize="12" 
+           Grid.Row="15" Grid.Column="1" Margin="27,12,0,0"/>
+                <TextBlock Text="Серия" HorizontalAlignment="Left" 
+           VerticalAlignment="Top" FontFamily="Montserrat" FontSize="12" 
+           Grid.Row="15" Grid.Column="1" Margin="35,12,0,0"/>
+                <TextBox x:Name="rebSerTB" Grid.Row="15" Grid.Column="1" 
+         HorizontalAlignment="Center" VerticalAlignment="Bottom"
+         Style="{StaticResource TextBoxStyle}" Margin="0,0,0,12"/>
+
+                <!--номер-->
+                <TextBlock Text="*" HorizontalAlignment="Left" Foreground="Red" FontWeight="Bold"
+VerticalAlignment="Top" FontFamily="Montserrat" FontSize="12" 
+Grid.Row="15" Grid.Column="2" Margin="27,12,0,0"/>
+                <TextBlock Text="Номер" HorizontalAlignment="Left" 
+           VerticalAlignment="Top" FontFamily="Montserrat" FontSize="12" 
+           Grid.Row="15" Grid.Column="2" Margin="35,12,0,0"/>
+                <TextBox x:Name="rebNomTB" Grid.Row="15" Grid.Column="2" 
+         HorizontalAlignment="Center" VerticalAlignment="Bottom"
+         Style="{StaticResource TextBoxStyle}" Margin="0,0,0,12"/>
+
+                <!--дата выдачи-->
+                <TextBlock Text="*" HorizontalAlignment="Left" Foreground="Red" FontWeight="Bold"
+           VerticalAlignment="Top" FontFamily="Montserrat" FontSize="12" 
+           Grid.Row="15" Grid.Column="3" Margin="27,12,0,0"/>
+                <TextBlock Text="Дата выдачи" HorizontalAlignment="Left" 
+           VerticalAlignment="Top" FontFamily="Montserrat" FontSize="12" 
+           Grid.Row="15" Grid.Column="3" Margin="35,12,0,0"/>
+                <TextBox x:Name="rebDataVidTB" Grid.Row="15" Grid.Column="3" 
+         HorizontalAlignment="Center" VerticalAlignment="Bottom"
+         Style="{StaticResource TextBoxStyle}" Margin="0,0,0,12"/>
+
+                <!--Выдан-->
+                <TextBlock Text="*" HorizontalAlignment="Left" Foreground="Red" FontWeight="Bold"
+VerticalAlignment="Top" FontFamily="Montserrat" FontSize="12" 
+Grid.Row="16" Grid.Column="0" Margin="27,12,0,0"/>
+                <TextBlock Text="Выдан" HorizontalAlignment="Left" 
+           VerticalAlignment="Top" FontFamily="Montserrat" FontSize="12" 
+           Grid.Row="16" Grid.Column="0" Margin="35,12,0,0"/>
+                <TextBox x:Name="rebVidanTB" Grid.Row="16" Grid.Column="0" 
+         HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="335"
+         Style="{StaticResource TextBoxStyle}" Margin="0,0,0,12" Grid.ColumnSpan="2"/>
+
+                <!--Код подраз-->
+                <TextBlock Text="*" HorizontalAlignment="Left" Foreground="Red" FontWeight="Bold"
+           VerticalAlignment="Top" FontFamily="Montserrat" FontSize="12" 
+           Grid.Row="16" Grid.Column="2" Margin="27,12,0,0"/>
+                <TextBlock Text="Код подразделения" HorizontalAlignment="Left" 
+           VerticalAlignment="Top" FontFamily="Montserrat" FontSize="12" 
+           Grid.Row="16" Grid.Column="2" Margin="35,12,0,0"/>
+                <TextBox x:Name="rebKodPodrTB" Grid.Row="16" Grid.Column="2" 
+         HorizontalAlignment="Center" VerticalAlignment="Bottom"
+         Style="{StaticResource TextBoxStyle}" Margin="0,0,0,12"/>
+
+                <!--инн-->
+                <TextBlock Text="*" HorizontalAlignment="Left" Foreground="Red" FontWeight="Bold"
+VerticalAlignment="Top" FontFamily="Montserrat" FontSize="12" 
+Grid.Row="17" Grid.Column="0" Margin="27,12,0,0"/>
+                <TextBlock Text="ИНН" HorizontalAlignment="Left" 
+           VerticalAlignment="Top" FontFamily="Montserrat" FontSize="12" 
+           Grid.Row="17" Grid.Column="0" Margin="35,12,0,0"/>
+                <TextBox x:Name="rebINNTB" Grid.Row="17" Grid.Column="0" 
+         HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="335"
+         Style="{StaticResource TextBoxStyle}" Margin="0,0,0,12" Grid.ColumnSpan="2"/>
+
+                <!--снилс-->
+                <TextBlock Text="*" HorizontalAlignment="Left" Foreground="Red" FontWeight="Bold"
+VerticalAlignment="Top" FontFamily="Montserrat" FontSize="12" 
+Grid.Row="17" Grid.Column="2" Margin="27,12,0,0"/>
+                <TextBlock Text="СНИЛС" HorizontalAlignment="Left" 
+           VerticalAlignment="Top" FontFamily="Montserrat" FontSize="12" 
+           Grid.Row="17" Grid.Column="2" Margin="35,12,0,0"/>
+                <TextBox x:Name="rebSNILSTB" Grid.Row="17" Grid.Column="2" 
+         HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="335"
+         Style="{StaticResource TextBoxStyle}" Margin="0,0,0,12" Grid.ColumnSpan="2"/>
+
+                <!--АДРЕС ПРОПИСКИ УЧЕНЕНИКА-->
+                <TextBlock Text="Адрес прописки ученика:" HorizontalAlignment="Left" 
+           VerticalAlignment="Bottom" FontFamily="Montserrat" FontSize="20" FontWeight="SemiBold" 
+           Grid.Row="18" Grid.Column="0" Grid.ColumnSpan="4"  Margin="20,0,0,0"/>
+
+                <!--Страна-->
+                <TextBlock Text="*" HorizontalAlignment="Left" Foreground="Red" FontWeight="Bold"
+           VerticalAlignment="Top" FontFamily="Montserrat" FontSize="12" 
+           Grid.Row="19" Grid.Column="0" Margin="27,12,0,0"/>
+                <TextBlock Text="Страна" HorizontalAlignment="Left" 
+           VerticalAlignment="Top" FontFamily="Montserrat" FontSize="12" 
+           Grid.Row="19" Grid.Column="0" Margin="35,12,0,0"/>
+                <TextBox x:Name="rebStranaTB" Grid.Row="19" Grid.Column="0" 
+         HorizontalAlignment="Center" VerticalAlignment="Bottom"
+         Style="{StaticResource TextBoxStyle}" Margin="0,0,0,12"/>
+
+                <!--Регион-->
+                <TextBlock Text="Регион" HorizontalAlignment="Left" 
+           VerticalAlignment="Top" FontFamily="Montserrat" FontSize="12" 
+           Grid.Row="19" Grid.Column="1" Margin="27,12,0,0"/>
+                <TextBox x:Name="rebRegTB" Grid.Row="19" Grid.Column="1" 
+         HorizontalAlignment="Center" VerticalAlignment="Bottom"
+         Style="{StaticResource TextBoxStyle}" Margin="0,0,0,12"/>
+
+                <!--Город-->
+                <TextBlock Text="*" HorizontalAlignment="Left" Foreground="Red" FontWeight="Bold"
+VerticalAlignment="Top" FontFamily="Montserrat" FontSize="12" 
+Grid.Row="19" Grid.Column="2" Margin="27,12,0,0"/>
+                <TextBlock Text="Город" HorizontalAlignment="Left" 
+           VerticalAlignment="Top" FontFamily="Montserrat" FontSize="12" 
+           Grid.Row="19" Grid.Column="2" Margin="35,12,0,0"/>
+                <TextBox x:Name="rebGorodTB" Grid.Row="19" Grid.Column="2" 
+         HorizontalAlignment="Center" VerticalAlignment="Bottom"
+         Style="{StaticResource TextBoxStyle}" Margin="0,0,0,12"/>
+
+                <!--Район-->
+                <TextBlock Text="Район" HorizontalAlignment="Left" 
+           VerticalAlignment="Top" FontFamily="Montserrat" FontSize="12" 
+           Grid.Row="19" Grid.Column="3" Margin="27,12,0,0"/>
+                <TextBox x:Name="rebRaionTB" Grid.Row="19" Grid.Column="3" 
+         HorizontalAlignment="Center" VerticalAlignment="Bottom"
+         Style="{StaticResource TextBoxStyle}" Margin="0,0,0,12"/>
+
+                <!--Улица-->
+                <TextBlock Text="*" HorizontalAlignment="Left" Foreground="Red" FontWeight="Bold"
+           VerticalAlignment="Top" FontFamily="Montserrat" FontSize="12" 
+           Grid.Row="20" Grid.Column="0" Margin="27,12,0,0"/>
+                <TextBlock Text="Улица" HorizontalAlignment="Left" 
+           VerticalAlignment="Top" FontFamily="Montserrat" FontSize="12" 
+           Grid.Row="20" Grid.Column="0" Margin="35,12,0,0"/>
+                <TextBox x:Name="rebYlTB" Grid.Row="20" Grid.Column="0" 
+         HorizontalAlignment="Center" VerticalAlignment="Bottom"
+         Style="{StaticResource TextBoxStyle}" Margin="0,0,0,12"/>
+
+                <!--Дом-->
+                <TextBlock Text="*" HorizontalAlignment="Left" Foreground="Red" FontWeight="Bold"
+VerticalAlignment="Top" FontFamily="Montserrat" FontSize="12" 
+Grid.Row="20" Grid.Column="1" Margin="27,12,0,0"/>
+                <TextBlock Text="Дом" HorizontalAlignment="Left" 
+           VerticalAlignment="Top" FontFamily="Montserrat" FontSize="12" 
+           Grid.Row="20" Grid.Column="1" Margin="35,12,0,0"/>
+                <TextBox x:Name="rebDomTB" Grid.Row="20" Grid.Column="1" 
+         HorizontalAlignment="Center" VerticalAlignment="Bottom"
+         Style="{StaticResource TextBoxStyle}" Margin="0,0,0,12"/>
+
+                <!--Подъезд-->
+                <TextBlock Text="Подъезд" HorizontalAlignment="Left" 
+           VerticalAlignment="Top" FontFamily="Montserrat" FontSize="12" 
+           Grid.Row="20" Grid.Column="2" Margin="27,12,0,0"/>
+                <TextBox x:Name="rebPodTB" Grid.Row="20" Grid.Column="2" 
+         HorizontalAlignment="Center" VerticalAlignment="Bottom"
+         Style="{StaticResource TextBoxStyle}" Margin="0,0,0,12"/>
+
+                <!--Квартира-->
+                <TextBlock Text="Квартира" HorizontalAlignment="Left" 
+VerticalAlignment="Top" FontFamily="Montserrat" FontSize="12" 
+Grid.Row="20" Grid.Column="3" Margin="27,12,0,0"/>
+                <TextBox x:Name="rebKvTB" Grid.Row="20" Grid.Column="3" 
+         HorizontalAlignment="Center" VerticalAlignment="Bottom"
+         Style="{StaticResource TextBoxStyle}" Margin="0,0,0,12"/>
+
+                <!--галочка с адресом!!!!!!!!!!!!!!!!!!!!!!!!-->
+                <TextBlock Text="Проживаю по месту прописки" 
+                           HorizontalAlignment="Left" Grid.ColumnSpan="4" 
+VerticalAlignment="Center" FontFamily="Montserrat" FontSize="12" 
+Grid.Row="21" Grid.Column="0" Margin="20,0,0,0"/>
+
+                <!--АДРЕС ФАКТИЧЕСКОГО ПРОЖИВАНИЯ ОПЕКУНА-->
+                <TextBlock Text="Адрес фактического проживания опекуна:" HorizontalAlignment="Left" 
+           VerticalAlignment="Bottom" FontFamily="Montserrat" FontSize="20" FontWeight="SemiBold" 
+           Grid.Row="22" Grid.Column="0" Grid.ColumnSpan="4"  Margin="20,0,0,0"/>
+
+                <!--Факт Страна-->
+                <TextBlock Text="*" HorizontalAlignment="Left" Foreground="Red" FontWeight="Bold"
+           VerticalAlignment="Top" FontFamily="Montserrat" FontSize="12" 
+           Grid.Row="23" Grid.Column="0" Margin="27,12,0,0"/>
+                <TextBlock Text="Страна" HorizontalAlignment="Left" 
+           VerticalAlignment="Top" FontFamily="Montserrat" FontSize="12" 
+           Grid.Row="23" Grid.Column="0" Margin="35,12,0,0"/>
+                <TextBox x:Name="rebFaktStranaTB" Grid.Row="23" Grid.Column="0" 
+         HorizontalAlignment="Center" VerticalAlignment="Bottom"
+         Style="{StaticResource TextBoxStyle}" Margin="0,0,0,12"/>
+
+                <!--Факт Регион-->
+                <TextBlock Text="Регион" HorizontalAlignment="Left" 
+           VerticalAlignment="Top" FontFamily="Montserrat" FontSize="12" 
+           Grid.Row="23" Grid.Column="1" Margin="27,12,0,0"/>
+                <TextBox x:Name="rebFaktRegTB" Grid.Row="23" Grid.Column="1" 
+         HorizontalAlignment="Center" VerticalAlignment="Bottom"
+         Style="{StaticResource TextBoxStyle}" Margin="0,0,0,12"/>
+
+                <!--Факт Город-->
+                <TextBlock Text="*" HorizontalAlignment="Left" Foreground="Red" FontWeight="Bold"
+VerticalAlignment="Top" FontFamily="Montserrat" FontSize="12" 
+Grid.Row="23" Grid.Column="2" Margin="27,12,0,0"/>
+                <TextBlock Text="Город" HorizontalAlignment="Left" 
+           VerticalAlignment="Top" FontFamily="Montserrat" FontSize="12" 
+           Grid.Row="23" Grid.Column="2" Margin="35,12,0,0"/>
+                <TextBox x:Name="rebFaktGorodTB" Grid.Row="23" Grid.Column="2" 
+         HorizontalAlignment="Center" VerticalAlignment="Bottom"
+         Style="{StaticResource TextBoxStyle}" Margin="0,0,0,12"/>
+
+                <!--Факт Район-->
+                <TextBlock Text="Район" HorizontalAlignment="Left" 
+           VerticalAlignment="Top" FontFamily="Montserrat" FontSize="12" 
+           Grid.Row="23" Grid.Column="3" Margin="27,12,0,0"/>
+                <TextBox x:Name="rebFaktRaionTB" Grid.Row="23" Grid.Column="3" 
+         HorizontalAlignment="Center" VerticalAlignment="Bottom"
+         Style="{StaticResource TextBoxStyle}" Margin="0,0,0,12"/>
+
+                <!--Факт Улица-->
+                <TextBlock Text="*" HorizontalAlignment="Left" Foreground="Red" FontWeight="Bold"
+           VerticalAlignment="Top" FontFamily="Montserrat" FontSize="12" 
+           Grid.Row="24" Grid.Column="0" Margin="27,12,0,0"/>
+                <TextBlock Text="Улица" HorizontalAlignment="Left" 
+           VerticalAlignment="Top" FontFamily="Montserrat" FontSize="12" 
+           Grid.Row="24" Grid.Column="0" Margin="35,12,0,0"/>
+                <TextBox x:Name="rebFaktYlTB" Grid.Row="24" Grid.Column="0" 
+         HorizontalAlignment="Center" VerticalAlignment="Bottom"
+         Style="{StaticResource TextBoxStyle}" Margin="0,0,0,12"/>
+
+                <!--Факт Дом-->
+                <TextBlock Text="*" HorizontalAlignment="Left" Foreground="Red" FontWeight="Bold"
+VerticalAlignment="Top" FontFamily="Montserrat" FontSize="12" 
+Grid.Row="24" Grid.Column="1" Margin="27,12,0,0"/>
+                <TextBlock Text="Дом" HorizontalAlignment="Left" 
+           VerticalAlignment="Top" FontFamily="Montserrat" FontSize="12" 
+           Grid.Row="24" Grid.Column="1" Margin="35,12,0,0"/>
+                <TextBox x:Name="rebFaktDomTB" Grid.Row="24" Grid.Column="1" 
+         HorizontalAlignment="Center" VerticalAlignment="Bottom"
+         Style="{StaticResource TextBoxStyle}" Margin="0,0,0,12"/>
+
+                <!--Факт Подъезд-->
+                <TextBlock Text="Подъезд" HorizontalAlignment="Left" 
+           VerticalAlignment="Top" FontFamily="Montserrat" FontSize="12" 
+           Grid.Row="24" Grid.Column="2" Margin="27,12,0,0"/>
+                <TextBox x:Name="rebFaktPodTB" Grid.Row="24" Grid.Column="2" 
+         HorizontalAlignment="Center" VerticalAlignment="Bottom"
+         Style="{StaticResource TextBoxStyle}" Margin="0,0,0,12"/>
+
+                <!--Факт Квартира-->
+                <TextBlock Text="Квартира" HorizontalAlignment="Left" 
+VerticalAlignment="Top" FontFamily="Montserrat" FontSize="12" 
+Grid.Row="24" Grid.Column="3" Margin="27,12,0,0"/>
+                <TextBox x:Name="rebFaktKvTB" Grid.Row="24" Grid.Column="3" 
+         HorizontalAlignment="Center" VerticalAlignment="Bottom"
+         Style="{StaticResource TextBoxStyle}" Margin="0,0,0,12"/>
+
+                <!--галочка с соглашением!!!!!!!!!!!!!!!!!!!!!!!!-->
+                <TextBlock Text="Даю разрешение на обработку персональных данных" 
+                           HorizontalAlignment="Left" Grid.ColumnSpan="4" 
+VerticalAlignment="Center" FontFamily="Montserrat" FontSize="12" 
+Grid.Row="25" Grid.Column="0" Margin="20,0,0,0"/>
+
+                <Button Style="{StaticResource ButtonStyle}" Grid.Row="26" Grid.Column="1" Grid.ColumnSpan="2"
+        HorizontalAlignment="Center" VerticalAlignment="Top" Content="Зарегистрироваться"
+                       />
+            </Grid>
+        </ScrollViewer>
+
+    </Grid>
+</Window>

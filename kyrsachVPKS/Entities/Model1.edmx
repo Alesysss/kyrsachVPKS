@@ -1,0 +1,1470 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище ITschoolModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Accounts">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" Nullable="false" />
+          <Property Name="ID_Administrators" Type="bigint" />
+          <Property Name="ID_Teachers" Type="bigint" />
+          <Property Name="ID_Students" Type="bigint" />
+          <Property Name="Login" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Role" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Administrators">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" Nullable="false" />
+          <Property Name="Surname" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Middle_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Date_of_birth" Type="date" Nullable="false" />
+          <Property Name="Gender" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Phone_number" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Date_career_start" Type="date" Nullable="false" />
+          <Property Name="ID_Documents" Type="bigint" Nullable="false" />
+          <Property Name="ID_RegistrationAddress" Type="bigint" Nullable="false" />
+          <Property Name="ID_ResidenceAddress" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Courses">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Age_group" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Difficulty_level" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Technologies" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Required_skills" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Number_of_classes" Type="int" Nullable="false" />
+          <Property Name="Cost" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Min_number_of_places" Type="int" />
+          <Property Name="Max_number_of_places" Type="int" />
+          <Property Name="Certificate" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Status" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Documents">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" Nullable="false" />
+          <Property Name="Passport_series" Type="int" Nullable="false" />
+          <Property Name="Passport_number" Type="int" Nullable="false" />
+          <Property Name="Date_of_issue" Type="date" Nullable="false" />
+          <Property Name="Issued" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Unit_code" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="INN" Type="nvarchar" MaxLength="12" Nullable="false" />
+          <Property Name="SNILS" Type="nvarchar" MaxLength="14" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Groups">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" Nullable="false" />
+          <Property Name="Description" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Guardians">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" Nullable="false" />
+          <Property Name="Surname" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Middle_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Date_of_birth" Type="date" Nullable="false" />
+          <Property Name="Gender" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Phone_number" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ID_Documents" Type="bigint" Nullable="false" />
+          <Property Name="ID_RegistrationAddress" Type="bigint" Nullable="false" />
+          <Property Name="ID_ResidenceAddress" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RegistrationAddress">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" Nullable="false" />
+          <Property Name="Country" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Region" Type="nvarchar" MaxLength="50" />
+          <Property Name="City" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="District" Type="nvarchar" MaxLength="50" />
+          <Property Name="Street" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="House" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Entrance" Type="int" />
+          <Property Name="Flat" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Requests">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" Nullable="false" />
+          <Property Name="Status" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Contract" Type="nchar" MaxLength="10" />
+          <Property Name="Date_of_creation" Type="date" Nullable="false" />
+          <Property Name="ID_Students" Type="bigint" Nullable="false" />
+          <Property Name="ID_Courses" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ResidenceAddress">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" Nullable="false" />
+          <Property Name="Country" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Region" Type="nvarchar" MaxLength="50" />
+          <Property Name="City" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="District" Type="nvarchar" MaxLength="50" />
+          <Property Name="Street" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="House" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Entrance" Type="int" />
+          <Property Name="Flat" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Schedule">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" Nullable="false" />
+          <Property Name="Start_time" Type="time" Precision="7" Nullable="false" />
+          <Property Name="End_time" Type="time" Precision="7" Nullable="false" />
+          <Property Name="Lecture_hall" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Day_of_the_week" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ID_Teachers" Type="bigint" Nullable="false" />
+          <Property Name="ID_Courses" Type="bigint" Nullable="false" />
+          <Property Name="ID_Groups" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Students">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" Nullable="false" />
+          <Property Name="Surname" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Middle_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Date_of_birth" Type="date" Nullable="false" />
+          <Property Name="Gender" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Phone_number" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ID_Documents" Type="bigint" Nullable="false" />
+          <Property Name="ID_RegistrationAddress" Type="bigint" Nullable="false" />
+          <Property Name="ID_ResidenceAddress" Type="bigint" Nullable="false" />
+          <Property Name="ID_Guardians" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="StudetsGroups">
+          <Key>
+            <PropertyRef Name="ID_Students" />
+            <PropertyRef Name="ID_Groups" />
+          </Key>
+          <Property Name="ID_Students" Type="bigint" Nullable="false" />
+          <Property Name="ID_Groups" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Teachers">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" Nullable="false" />
+          <Property Name="Surname" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Middle_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Date_of_birth" Type="date" Nullable="false" />
+          <Property Name="Gender" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Phone_number" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Date_career_start" Type="date" Nullable="false" />
+          <Property Name="ID_Documents" Type="bigint" Nullable="false" />
+          <Property Name="ID_RegistrationAddress" Type="bigint" Nullable="false" />
+          <Property Name="ID_ResidenceAddress" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TeachersCourses">
+          <Key>
+            <PropertyRef Name="ID_Teachers" />
+            <PropertyRef Name="ID_Courses" />
+          </Key>
+          <Property Name="ID_Teachers" Type="bigint" Nullable="false" />
+          <Property Name="ID_Courses" Type="bigint" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Accounts_Administrators">
+          <End Role="Administrators" Type="Self.Administrators" Multiplicity="0..1" />
+          <End Role="Accounts" Type="Self.Accounts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Administrators">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Accounts">
+              <PropertyRef Name="ID_Administrators" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Accounts_Students">
+          <End Role="Students" Type="Self.Students" Multiplicity="0..1" />
+          <End Role="Accounts" Type="Self.Accounts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Students">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Accounts">
+              <PropertyRef Name="ID_Students" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Accounts_Teachers">
+          <End Role="Teachers" Type="Self.Teachers" Multiplicity="0..1" />
+          <End Role="Accounts" Type="Self.Accounts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Teachers">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Accounts">
+              <PropertyRef Name="ID_Teachers" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Administrators_Documents">
+          <End Role="Documents" Type="Self.Documents" Multiplicity="1" />
+          <End Role="Administrators" Type="Self.Administrators" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Documents">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Administrators">
+              <PropertyRef Name="ID_Documents" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Administrators_RegistrationAddress">
+          <End Role="RegistrationAddress" Type="Self.RegistrationAddress" Multiplicity="1" />
+          <End Role="Administrators" Type="Self.Administrators" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RegistrationAddress">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Administrators">
+              <PropertyRef Name="ID_RegistrationAddress" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Administrators_ResidenceAddress">
+          <End Role="ResidenceAddress" Type="Self.ResidenceAddress" Multiplicity="1" />
+          <End Role="Administrators" Type="Self.Administrators" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ResidenceAddress">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Administrators">
+              <PropertyRef Name="ID_ResidenceAddress" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Guardians_Documents">
+          <End Role="Documents" Type="Self.Documents" Multiplicity="1" />
+          <End Role="Guardians" Type="Self.Guardians" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Documents">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Guardians">
+              <PropertyRef Name="ID_Documents" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Guardians_RegistrationAddress">
+          <End Role="RegistrationAddress" Type="Self.RegistrationAddress" Multiplicity="1" />
+          <End Role="Guardians" Type="Self.Guardians" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RegistrationAddress">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Guardians">
+              <PropertyRef Name="ID_RegistrationAddress" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Guardians_ResidenceAddress">
+          <End Role="ResidenceAddress" Type="Self.ResidenceAddress" Multiplicity="1" />
+          <End Role="Guardians" Type="Self.Guardians" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ResidenceAddress">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Guardians">
+              <PropertyRef Name="ID_ResidenceAddress" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Requests_Courses">
+          <End Role="Courses" Type="Self.Courses" Multiplicity="1" />
+          <End Role="Requests" Type="Self.Requests" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Courses">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Requests">
+              <PropertyRef Name="ID_Courses" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Requests_Students">
+          <End Role="Students" Type="Self.Students" Multiplicity="1" />
+          <End Role="Requests" Type="Self.Requests" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Students">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Requests">
+              <PropertyRef Name="ID_Students" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Schedule_Courses">
+          <End Role="Courses" Type="Self.Courses" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Schedule" Type="Self.Schedule" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Courses">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Schedule">
+              <PropertyRef Name="ID_Courses" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Schedule_Groups">
+          <End Role="Groups" Type="Self.Groups" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Schedule" Type="Self.Schedule" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Groups">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Schedule">
+              <PropertyRef Name="ID_Groups" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Schedule_Teachers">
+          <End Role="Teachers" Type="Self.Teachers" Multiplicity="1" />
+          <End Role="Schedule" Type="Self.Schedule" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Teachers">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Schedule">
+              <PropertyRef Name="ID_Teachers" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Students_Documents">
+          <End Role="Documents" Type="Self.Documents" Multiplicity="1" />
+          <End Role="Students" Type="Self.Students" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Documents">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Students">
+              <PropertyRef Name="ID_Documents" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Students_Guardians">
+          <End Role="Guardians" Type="Self.Guardians" Multiplicity="1" />
+          <End Role="Students" Type="Self.Students" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Guardians">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Students">
+              <PropertyRef Name="ID_Guardians" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Students_RegistrationAddress">
+          <End Role="RegistrationAddress" Type="Self.RegistrationAddress" Multiplicity="1" />
+          <End Role="Students" Type="Self.Students" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RegistrationAddress">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Students">
+              <PropertyRef Name="ID_RegistrationAddress" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Students_ResidenceAddress">
+          <End Role="ResidenceAddress" Type="Self.ResidenceAddress" Multiplicity="1" />
+          <End Role="Students" Type="Self.Students" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ResidenceAddress">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Students">
+              <PropertyRef Name="ID_ResidenceAddress" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StudetsGroups_Groups">
+          <End Role="Groups" Type="Self.Groups" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="StudetsGroups" Type="Self.StudetsGroups" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Groups">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="StudetsGroups">
+              <PropertyRef Name="ID_Groups" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StudetsGroups_Students">
+          <End Role="Students" Type="Self.Students" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="StudetsGroups" Type="Self.StudetsGroups" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Students">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="StudetsGroups">
+              <PropertyRef Name="ID_Students" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Teachers_Documents">
+          <End Role="Documents" Type="Self.Documents" Multiplicity="1" />
+          <End Role="Teachers" Type="Self.Teachers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Documents">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Teachers">
+              <PropertyRef Name="ID_Documents" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Teachers_RegistrationAddress">
+          <End Role="RegistrationAddress" Type="Self.RegistrationAddress" Multiplicity="1" />
+          <End Role="Teachers" Type="Self.Teachers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RegistrationAddress">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Teachers">
+              <PropertyRef Name="ID_RegistrationAddress" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Teachers_ResidenceAddress">
+          <End Role="ResidenceAddress" Type="Self.ResidenceAddress" Multiplicity="1" />
+          <End Role="Teachers" Type="Self.Teachers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ResidenceAddress">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Teachers">
+              <PropertyRef Name="ID_ResidenceAddress" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TeachersCourses_Courses">
+          <End Role="Courses" Type="Self.Courses" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TeachersCourses" Type="Self.TeachersCourses" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Courses">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TeachersCourses">
+              <PropertyRef Name="ID_Courses" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TeachersCourses_Teachers">
+          <End Role="Teachers" Type="Self.Teachers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TeachersCourses" Type="Self.TeachersCourses" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Teachers">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TeachersCourses">
+              <PropertyRef Name="ID_Teachers" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище ITschoolModelContainer">
+          <EntitySet Name="Accounts" EntityType="Self.Accounts" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Administrators" EntityType="Self.Administrators" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Courses" EntityType="Self.Courses" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Documents" EntityType="Self.Documents" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Groups" EntityType="Self.Groups" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Guardians" EntityType="Self.Guardians" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RegistrationAddress" EntityType="Self.RegistrationAddress" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Requests" EntityType="Self.Requests" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ResidenceAddress" EntityType="Self.ResidenceAddress" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Schedule" EntityType="Self.Schedule" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Students" EntityType="Self.Students" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StudetsGroups" EntityType="Self.StudetsGroups" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Teachers" EntityType="Self.Teachers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TeachersCourses" EntityType="Self.TeachersCourses" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Accounts_Administrators" Association="Self.FK_Accounts_Administrators">
+            <End Role="Administrators" EntitySet="Administrators" />
+            <End Role="Accounts" EntitySet="Accounts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Accounts_Students" Association="Self.FK_Accounts_Students">
+            <End Role="Students" EntitySet="Students" />
+            <End Role="Accounts" EntitySet="Accounts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Accounts_Teachers" Association="Self.FK_Accounts_Teachers">
+            <End Role="Teachers" EntitySet="Teachers" />
+            <End Role="Accounts" EntitySet="Accounts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Administrators_Documents" Association="Self.FK_Administrators_Documents">
+            <End Role="Documents" EntitySet="Documents" />
+            <End Role="Administrators" EntitySet="Administrators" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Administrators_RegistrationAddress" Association="Self.FK_Administrators_RegistrationAddress">
+            <End Role="RegistrationAddress" EntitySet="RegistrationAddress" />
+            <End Role="Administrators" EntitySet="Administrators" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Administrators_ResidenceAddress" Association="Self.FK_Administrators_ResidenceAddress">
+            <End Role="ResidenceAddress" EntitySet="ResidenceAddress" />
+            <End Role="Administrators" EntitySet="Administrators" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Guardians_Documents" Association="Self.FK_Guardians_Documents">
+            <End Role="Documents" EntitySet="Documents" />
+            <End Role="Guardians" EntitySet="Guardians" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Guardians_RegistrationAddress" Association="Self.FK_Guardians_RegistrationAddress">
+            <End Role="RegistrationAddress" EntitySet="RegistrationAddress" />
+            <End Role="Guardians" EntitySet="Guardians" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Guardians_ResidenceAddress" Association="Self.FK_Guardians_ResidenceAddress">
+            <End Role="ResidenceAddress" EntitySet="ResidenceAddress" />
+            <End Role="Guardians" EntitySet="Guardians" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Requests_Courses" Association="Self.FK_Requests_Courses">
+            <End Role="Courses" EntitySet="Courses" />
+            <End Role="Requests" EntitySet="Requests" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Requests_Students" Association="Self.FK_Requests_Students">
+            <End Role="Students" EntitySet="Students" />
+            <End Role="Requests" EntitySet="Requests" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Schedule_Courses" Association="Self.FK_Schedule_Courses">
+            <End Role="Courses" EntitySet="Courses" />
+            <End Role="Schedule" EntitySet="Schedule" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Schedule_Groups" Association="Self.FK_Schedule_Groups">
+            <End Role="Groups" EntitySet="Groups" />
+            <End Role="Schedule" EntitySet="Schedule" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Schedule_Teachers" Association="Self.FK_Schedule_Teachers">
+            <End Role="Teachers" EntitySet="Teachers" />
+            <End Role="Schedule" EntitySet="Schedule" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Students_Documents" Association="Self.FK_Students_Documents">
+            <End Role="Documents" EntitySet="Documents" />
+            <End Role="Students" EntitySet="Students" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Students_Guardians" Association="Self.FK_Students_Guardians">
+            <End Role="Guardians" EntitySet="Guardians" />
+            <End Role="Students" EntitySet="Students" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Students_RegistrationAddress" Association="Self.FK_Students_RegistrationAddress">
+            <End Role="RegistrationAddress" EntitySet="RegistrationAddress" />
+            <End Role="Students" EntitySet="Students" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Students_ResidenceAddress" Association="Self.FK_Students_ResidenceAddress">
+            <End Role="ResidenceAddress" EntitySet="ResidenceAddress" />
+            <End Role="Students" EntitySet="Students" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StudetsGroups_Groups" Association="Self.FK_StudetsGroups_Groups">
+            <End Role="Groups" EntitySet="Groups" />
+            <End Role="StudetsGroups" EntitySet="StudetsGroups" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StudetsGroups_Students" Association="Self.FK_StudetsGroups_Students">
+            <End Role="Students" EntitySet="Students" />
+            <End Role="StudetsGroups" EntitySet="StudetsGroups" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Teachers_Documents" Association="Self.FK_Teachers_Documents">
+            <End Role="Documents" EntitySet="Documents" />
+            <End Role="Teachers" EntitySet="Teachers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Teachers_RegistrationAddress" Association="Self.FK_Teachers_RegistrationAddress">
+            <End Role="RegistrationAddress" EntitySet="RegistrationAddress" />
+            <End Role="Teachers" EntitySet="Teachers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Teachers_ResidenceAddress" Association="Self.FK_Teachers_ResidenceAddress">
+            <End Role="ResidenceAddress" EntitySet="ResidenceAddress" />
+            <End Role="Teachers" EntitySet="Teachers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TeachersCourses_Courses" Association="Self.FK_TeachersCourses_Courses">
+            <End Role="Courses" EntitySet="Courses" />
+            <End Role="TeachersCourses" EntitySet="TeachersCourses" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TeachersCourses_Teachers" Association="Self.FK_TeachersCourses_Teachers">
+            <End Role="Teachers" EntitySet="Teachers" />
+            <End Role="TeachersCourses" EntitySet="TeachersCourses" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ITschoolModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Accounts">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" />
+          <Property Name="ID_Administrators" Type="Int64" />
+          <Property Name="ID_Teachers" Type="Int64" />
+          <Property Name="ID_Students" Type="Int64" />
+          <Property Name="Login" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Role" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Administrators" Relationship="Self.FK_Accounts_Administrators" FromRole="Accounts" ToRole="Administrators" />
+          <NavigationProperty Name="Students" Relationship="Self.FK_Accounts_Students" FromRole="Accounts" ToRole="Students" />
+          <NavigationProperty Name="Teachers" Relationship="Self.FK_Accounts_Teachers" FromRole="Accounts" ToRole="Teachers" />
+        </EntityType>
+        <EntityType Name="Administrators">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" />
+          <Property Name="Surname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Middle_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Date_of_birth" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Gender" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Phone_number" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Date_career_start" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="ID_Documents" Type="Int64" Nullable="false" />
+          <Property Name="ID_RegistrationAddress" Type="Int64" Nullable="false" />
+          <Property Name="ID_ResidenceAddress" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="Accounts" Relationship="Self.FK_Accounts_Administrators" FromRole="Administrators" ToRole="Accounts" />
+          <NavigationProperty Name="Documents" Relationship="Self.FK_Administrators_Documents" FromRole="Administrators" ToRole="Documents" />
+          <NavigationProperty Name="RegistrationAddress" Relationship="Self.FK_Administrators_RegistrationAddress" FromRole="Administrators" ToRole="RegistrationAddress" />
+          <NavigationProperty Name="ResidenceAddress" Relationship="Self.FK_Administrators_ResidenceAddress" FromRole="Administrators" ToRole="ResidenceAddress" />
+        </EntityType>
+        <EntityType Name="Courses">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Age_group" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Difficulty_level" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Technologies" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Required_skills" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Number_of_classes" Type="Int32" Nullable="false" />
+          <Property Name="Cost" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Min_number_of_places" Type="Int32" />
+          <Property Name="Max_number_of_places" Type="Int32" />
+          <Property Name="Certificate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Requests" Relationship="Self.FK_Requests_Courses" FromRole="Courses" ToRole="Requests" />
+          <NavigationProperty Name="Schedule" Relationship="Self.FK_Schedule_Courses" FromRole="Courses" ToRole="Schedule" />
+          <NavigationProperty Name="Teachers" Relationship="Self.TeachersCourses" FromRole="Courses" ToRole="Teachers" />
+        </EntityType>
+        <EntityType Name="Documents">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" />
+          <Property Name="Passport_series" Type="Int32" Nullable="false" />
+          <Property Name="Passport_number" Type="Int32" Nullable="false" />
+          <Property Name="Date_of_issue" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Issued" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Unit_code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="INN" Type="String" MaxLength="12" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SNILS" Type="String" MaxLength="14" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Administrators" Relationship="Self.FK_Administrators_Documents" FromRole="Documents" ToRole="Administrators" />
+          <NavigationProperty Name="Guardians" Relationship="Self.FK_Guardians_Documents" FromRole="Documents" ToRole="Guardians" />
+          <NavigationProperty Name="Students" Relationship="Self.FK_Students_Documents" FromRole="Documents" ToRole="Students" />
+          <NavigationProperty Name="Teachers" Relationship="Self.FK_Teachers_Documents" FromRole="Documents" ToRole="Teachers" />
+        </EntityType>
+        <EntityType Name="Groups">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Schedule" Relationship="Self.FK_Schedule_Groups" FromRole="Groups" ToRole="Schedule" />
+          <NavigationProperty Name="Students" Relationship="Self.StudetsGroups" FromRole="Groups" ToRole="Students" />
+        </EntityType>
+        <EntityType Name="Guardians">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" />
+          <Property Name="Surname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Middle_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Date_of_birth" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Gender" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Phone_number" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ID_Documents" Type="Int64" Nullable="false" />
+          <Property Name="ID_RegistrationAddress" Type="Int64" Nullable="false" />
+          <Property Name="ID_ResidenceAddress" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="Documents" Relationship="Self.FK_Guardians_Documents" FromRole="Guardians" ToRole="Documents" />
+          <NavigationProperty Name="RegistrationAddress" Relationship="Self.FK_Guardians_RegistrationAddress" FromRole="Guardians" ToRole="RegistrationAddress" />
+          <NavigationProperty Name="ResidenceAddress" Relationship="Self.FK_Guardians_ResidenceAddress" FromRole="Guardians" ToRole="ResidenceAddress" />
+          <NavigationProperty Name="Students" Relationship="Self.FK_Students_Guardians" FromRole="Guardians" ToRole="Students" />
+        </EntityType>
+        <EntityType Name="RegistrationAddress">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" />
+          <Property Name="Country" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Region" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="District" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Street" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="House" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Entrance" Type="Int32" />
+          <Property Name="Flat" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Administrators" Relationship="Self.FK_Administrators_RegistrationAddress" FromRole="RegistrationAddress" ToRole="Administrators" />
+          <NavigationProperty Name="Guardians" Relationship="Self.FK_Guardians_RegistrationAddress" FromRole="RegistrationAddress" ToRole="Guardians" />
+          <NavigationProperty Name="Students" Relationship="Self.FK_Students_RegistrationAddress" FromRole="RegistrationAddress" ToRole="Students" />
+          <NavigationProperty Name="Teachers" Relationship="Self.FK_Teachers_RegistrationAddress" FromRole="RegistrationAddress" ToRole="Teachers" />
+        </EntityType>
+        <EntityType Name="Requests">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" />
+          <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Contract" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Date_of_creation" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="ID_Students" Type="Int64" Nullable="false" />
+          <Property Name="ID_Courses" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="Courses" Relationship="Self.FK_Requests_Courses" FromRole="Requests" ToRole="Courses" />
+          <NavigationProperty Name="Students" Relationship="Self.FK_Requests_Students" FromRole="Requests" ToRole="Students" />
+        </EntityType>
+        <EntityType Name="ResidenceAddress">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" />
+          <Property Name="Country" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Region" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="District" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Street" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="House" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Entrance" Type="Int32" />
+          <Property Name="Flat" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Administrators" Relationship="Self.FK_Administrators_ResidenceAddress" FromRole="ResidenceAddress" ToRole="Administrators" />
+          <NavigationProperty Name="Guardians" Relationship="Self.FK_Guardians_ResidenceAddress" FromRole="ResidenceAddress" ToRole="Guardians" />
+          <NavigationProperty Name="Students" Relationship="Self.FK_Students_ResidenceAddress" FromRole="ResidenceAddress" ToRole="Students" />
+          <NavigationProperty Name="Teachers" Relationship="Self.FK_Teachers_ResidenceAddress" FromRole="ResidenceAddress" ToRole="Teachers" />
+        </EntityType>
+        <EntityType Name="Schedule">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" />
+          <Property Name="Start_time" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="End_time" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="Lecture_hall" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Day_of_the_week" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ID_Teachers" Type="Int64" Nullable="false" />
+          <Property Name="ID_Courses" Type="Int64" Nullable="false" />
+          <Property Name="ID_Groups" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="Courses" Relationship="Self.FK_Schedule_Courses" FromRole="Schedule" ToRole="Courses" />
+          <NavigationProperty Name="Groups" Relationship="Self.FK_Schedule_Groups" FromRole="Schedule" ToRole="Groups" />
+          <NavigationProperty Name="Teachers" Relationship="Self.FK_Schedule_Teachers" FromRole="Schedule" ToRole="Teachers" />
+        </EntityType>
+        <EntityType Name="Students">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" />
+          <Property Name="Surname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Middle_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Date_of_birth" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Gender" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Phone_number" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ID_Documents" Type="Int64" Nullable="false" />
+          <Property Name="ID_RegistrationAddress" Type="Int64" Nullable="false" />
+          <Property Name="ID_ResidenceAddress" Type="Int64" Nullable="false" />
+          <Property Name="ID_Guardians" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="Accounts" Relationship="Self.FK_Accounts_Students" FromRole="Students" ToRole="Accounts" />
+          <NavigationProperty Name="Documents" Relationship="Self.FK_Students_Documents" FromRole="Students" ToRole="Documents" />
+          <NavigationProperty Name="Guardians" Relationship="Self.FK_Students_Guardians" FromRole="Students" ToRole="Guardians" />
+          <NavigationProperty Name="RegistrationAddress" Relationship="Self.FK_Students_RegistrationAddress" FromRole="Students" ToRole="RegistrationAddress" />
+          <NavigationProperty Name="Requests" Relationship="Self.FK_Requests_Students" FromRole="Students" ToRole="Requests" />
+          <NavigationProperty Name="ResidenceAddress" Relationship="Self.FK_Students_ResidenceAddress" FromRole="Students" ToRole="ResidenceAddress" />
+          <NavigationProperty Name="Groups" Relationship="Self.StudetsGroups" FromRole="Students" ToRole="Groups" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Teachers">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" />
+          <Property Name="Surname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Middle_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Date_of_birth" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Gender" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Phone_number" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Date_career_start" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="ID_Documents" Type="Int64" Nullable="false" />
+          <Property Name="ID_RegistrationAddress" Type="Int64" Nullable="false" />
+          <Property Name="ID_ResidenceAddress" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="Accounts" Relationship="Self.FK_Accounts_Teachers" FromRole="Teachers" ToRole="Accounts" />
+          <NavigationProperty Name="Documents" Relationship="Self.FK_Teachers_Documents" FromRole="Teachers" ToRole="Documents" />
+          <NavigationProperty Name="RegistrationAddress" Relationship="Self.FK_Teachers_RegistrationAddress" FromRole="Teachers" ToRole="RegistrationAddress" />
+          <NavigationProperty Name="ResidenceAddress" Relationship="Self.FK_Teachers_ResidenceAddress" FromRole="Teachers" ToRole="ResidenceAddress" />
+          <NavigationProperty Name="Schedule" Relationship="Self.FK_Schedule_Teachers" FromRole="Teachers" ToRole="Schedule" />
+          <NavigationProperty Name="Courses" Relationship="Self.TeachersCourses" FromRole="Teachers" ToRole="Courses" />
+        </EntityType>
+        <Association Name="FK_Accounts_Administrators">
+          <End Role="Administrators" Type="Self.Administrators" Multiplicity="0..1" />
+          <End Role="Accounts" Type="Self.Accounts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Administrators">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Accounts">
+              <PropertyRef Name="ID_Administrators" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Accounts_Students">
+          <End Role="Students" Type="Self.Students" Multiplicity="0..1" />
+          <End Role="Accounts" Type="Self.Accounts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Students">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Accounts">
+              <PropertyRef Name="ID_Students" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Accounts_Teachers">
+          <End Role="Teachers" Type="Self.Teachers" Multiplicity="0..1" />
+          <End Role="Accounts" Type="Self.Accounts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Teachers">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Accounts">
+              <PropertyRef Name="ID_Teachers" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Administrators_Documents">
+          <End Role="Documents" Type="Self.Documents" Multiplicity="1" />
+          <End Role="Administrators" Type="Self.Administrators" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Documents">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Administrators">
+              <PropertyRef Name="ID_Documents" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Administrators_RegistrationAddress">
+          <End Role="RegistrationAddress" Type="Self.RegistrationAddress" Multiplicity="1" />
+          <End Role="Administrators" Type="Self.Administrators" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RegistrationAddress">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Administrators">
+              <PropertyRef Name="ID_RegistrationAddress" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Administrators_ResidenceAddress">
+          <End Role="ResidenceAddress" Type="Self.ResidenceAddress" Multiplicity="1" />
+          <End Role="Administrators" Type="Self.Administrators" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ResidenceAddress">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Administrators">
+              <PropertyRef Name="ID_ResidenceAddress" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Requests_Courses">
+          <End Role="Courses" Type="Self.Courses" Multiplicity="1" />
+          <End Role="Requests" Type="Self.Requests" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Courses">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Requests">
+              <PropertyRef Name="ID_Courses" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Schedule_Courses">
+          <End Role="Courses" Type="Self.Courses" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Schedule" Type="Self.Schedule" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Courses">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Schedule">
+              <PropertyRef Name="ID_Courses" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Guardians_Documents">
+          <End Role="Documents" Type="Self.Documents" Multiplicity="1" />
+          <End Role="Guardians" Type="Self.Guardians" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Documents">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Guardians">
+              <PropertyRef Name="ID_Documents" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Students_Documents">
+          <End Role="Documents" Type="Self.Documents" Multiplicity="1" />
+          <End Role="Students" Type="Self.Students" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Documents">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Students">
+              <PropertyRef Name="ID_Documents" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Teachers_Documents">
+          <End Role="Documents" Type="Self.Documents" Multiplicity="1" />
+          <End Role="Teachers" Type="Self.Teachers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Documents">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Teachers">
+              <PropertyRef Name="ID_Documents" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Schedule_Groups">
+          <End Role="Groups" Type="Self.Groups" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Schedule" Type="Self.Schedule" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Groups">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Schedule">
+              <PropertyRef Name="ID_Groups" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Guardians_RegistrationAddress">
+          <End Role="RegistrationAddress" Type="Self.RegistrationAddress" Multiplicity="1" />
+          <End Role="Guardians" Type="Self.Guardians" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RegistrationAddress">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Guardians">
+              <PropertyRef Name="ID_RegistrationAddress" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Guardians_ResidenceAddress">
+          <End Role="ResidenceAddress" Type="Self.ResidenceAddress" Multiplicity="1" />
+          <End Role="Guardians" Type="Self.Guardians" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ResidenceAddress">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Guardians">
+              <PropertyRef Name="ID_ResidenceAddress" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Students_Guardians">
+          <End Role="Guardians" Type="Self.Guardians" Multiplicity="1" />
+          <End Role="Students" Type="Self.Students" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Guardians">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Students">
+              <PropertyRef Name="ID_Guardians" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Students_RegistrationAddress">
+          <End Role="RegistrationAddress" Type="Self.RegistrationAddress" Multiplicity="1" />
+          <End Role="Students" Type="Self.Students" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RegistrationAddress">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Students">
+              <PropertyRef Name="ID_RegistrationAddress" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Teachers_RegistrationAddress">
+          <End Role="RegistrationAddress" Type="Self.RegistrationAddress" Multiplicity="1" />
+          <End Role="Teachers" Type="Self.Teachers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RegistrationAddress">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Teachers">
+              <PropertyRef Name="ID_RegistrationAddress" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Requests_Students">
+          <End Role="Students" Type="Self.Students" Multiplicity="1" />
+          <End Role="Requests" Type="Self.Requests" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Students">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Requests">
+              <PropertyRef Name="ID_Students" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Students_ResidenceAddress">
+          <End Role="ResidenceAddress" Type="Self.ResidenceAddress" Multiplicity="1" />
+          <End Role="Students" Type="Self.Students" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ResidenceAddress">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Students">
+              <PropertyRef Name="ID_ResidenceAddress" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Teachers_ResidenceAddress">
+          <End Role="ResidenceAddress" Type="Self.ResidenceAddress" Multiplicity="1" />
+          <End Role="Teachers" Type="Self.Teachers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ResidenceAddress">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Teachers">
+              <PropertyRef Name="ID_ResidenceAddress" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Schedule_Teachers">
+          <End Role="Teachers" Type="Self.Teachers" Multiplicity="1" />
+          <End Role="Schedule" Type="Self.Schedule" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Teachers">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Schedule">
+              <PropertyRef Name="ID_Teachers" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="StudetsGroups">
+          <End Role="Groups" Type="Self.Groups" Multiplicity="*" />
+          <End Role="Students" Type="Self.Students" Multiplicity="*" />
+        </Association>
+        <Association Name="TeachersCourses">
+          <End Role="Courses" Type="Self.Courses" Multiplicity="*" />
+          <End Role="Teachers" Type="Self.Teachers" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="ITschoolEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Accounts" EntityType="Self.Accounts" />
+          <EntitySet Name="Administrators" EntityType="Self.Administrators" />
+          <EntitySet Name="Courses" EntityType="Self.Courses" />
+          <EntitySet Name="Documents" EntityType="Self.Documents" />
+          <EntitySet Name="Groups" EntityType="Self.Groups" />
+          <EntitySet Name="Guardians" EntityType="Self.Guardians" />
+          <EntitySet Name="RegistrationAddress" EntityType="Self.RegistrationAddress" />
+          <EntitySet Name="Requests" EntityType="Self.Requests" />
+          <EntitySet Name="ResidenceAddress" EntityType="Self.ResidenceAddress" />
+          <EntitySet Name="Schedule" EntityType="Self.Schedule" />
+          <EntitySet Name="Students" EntityType="Self.Students" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="Teachers" EntityType="Self.Teachers" />
+          <AssociationSet Name="FK_Accounts_Administrators" Association="Self.FK_Accounts_Administrators">
+            <End Role="Administrators" EntitySet="Administrators" />
+            <End Role="Accounts" EntitySet="Accounts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Accounts_Students" Association="Self.FK_Accounts_Students">
+            <End Role="Students" EntitySet="Students" />
+            <End Role="Accounts" EntitySet="Accounts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Accounts_Teachers" Association="Self.FK_Accounts_Teachers">
+            <End Role="Teachers" EntitySet="Teachers" />
+            <End Role="Accounts" EntitySet="Accounts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Administrators_Documents" Association="Self.FK_Administrators_Documents">
+            <End Role="Documents" EntitySet="Documents" />
+            <End Role="Administrators" EntitySet="Administrators" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Administrators_RegistrationAddress" Association="Self.FK_Administrators_RegistrationAddress">
+            <End Role="RegistrationAddress" EntitySet="RegistrationAddress" />
+            <End Role="Administrators" EntitySet="Administrators" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Administrators_ResidenceAddress" Association="Self.FK_Administrators_ResidenceAddress">
+            <End Role="ResidenceAddress" EntitySet="ResidenceAddress" />
+            <End Role="Administrators" EntitySet="Administrators" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Requests_Courses" Association="Self.FK_Requests_Courses">
+            <End Role="Courses" EntitySet="Courses" />
+            <End Role="Requests" EntitySet="Requests" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Schedule_Courses" Association="Self.FK_Schedule_Courses">
+            <End Role="Courses" EntitySet="Courses" />
+            <End Role="Schedule" EntitySet="Schedule" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Guardians_Documents" Association="Self.FK_Guardians_Documents">
+            <End Role="Documents" EntitySet="Documents" />
+            <End Role="Guardians" EntitySet="Guardians" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Students_Documents" Association="Self.FK_Students_Documents">
+            <End Role="Documents" EntitySet="Documents" />
+            <End Role="Students" EntitySet="Students" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Teachers_Documents" Association="Self.FK_Teachers_Documents">
+            <End Role="Documents" EntitySet="Documents" />
+            <End Role="Teachers" EntitySet="Teachers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Schedule_Groups" Association="Self.FK_Schedule_Groups">
+            <End Role="Groups" EntitySet="Groups" />
+            <End Role="Schedule" EntitySet="Schedule" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Guardians_RegistrationAddress" Association="Self.FK_Guardians_RegistrationAddress">
+            <End Role="RegistrationAddress" EntitySet="RegistrationAddress" />
+            <End Role="Guardians" EntitySet="Guardians" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Guardians_ResidenceAddress" Association="Self.FK_Guardians_ResidenceAddress">
+            <End Role="ResidenceAddress" EntitySet="ResidenceAddress" />
+            <End Role="Guardians" EntitySet="Guardians" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Students_Guardians" Association="Self.FK_Students_Guardians">
+            <End Role="Guardians" EntitySet="Guardians" />
+            <End Role="Students" EntitySet="Students" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Students_RegistrationAddress" Association="Self.FK_Students_RegistrationAddress">
+            <End Role="RegistrationAddress" EntitySet="RegistrationAddress" />
+            <End Role="Students" EntitySet="Students" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Teachers_RegistrationAddress" Association="Self.FK_Teachers_RegistrationAddress">
+            <End Role="RegistrationAddress" EntitySet="RegistrationAddress" />
+            <End Role="Teachers" EntitySet="Teachers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Requests_Students" Association="Self.FK_Requests_Students">
+            <End Role="Students" EntitySet="Students" />
+            <End Role="Requests" EntitySet="Requests" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Students_ResidenceAddress" Association="Self.FK_Students_ResidenceAddress">
+            <End Role="ResidenceAddress" EntitySet="ResidenceAddress" />
+            <End Role="Students" EntitySet="Students" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Teachers_ResidenceAddress" Association="Self.FK_Teachers_ResidenceAddress">
+            <End Role="ResidenceAddress" EntitySet="ResidenceAddress" />
+            <End Role="Teachers" EntitySet="Teachers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Schedule_Teachers" Association="Self.FK_Schedule_Teachers">
+            <End Role="Teachers" EntitySet="Teachers" />
+            <End Role="Schedule" EntitySet="Schedule" />
+          </AssociationSet>
+          <AssociationSet Name="StudetsGroups" Association="Self.StudetsGroups">
+            <End Role="Groups" EntitySet="Groups" />
+            <End Role="Students" EntitySet="Students" />
+          </AssociationSet>
+          <AssociationSet Name="TeachersCourses" Association="Self.TeachersCourses">
+            <End Role="Courses" EntitySet="Courses" />
+            <End Role="Teachers" EntitySet="Teachers" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище ITschoolModelContainer" CdmEntityContainer="ITschoolEntities">
+          <EntitySetMapping Name="Accounts">
+            <EntityTypeMapping TypeName="ITschoolModel.Accounts">
+              <MappingFragment StoreEntitySet="Accounts">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ID_Administrators" ColumnName="ID_Administrators" />
+                <ScalarProperty Name="ID_Teachers" ColumnName="ID_Teachers" />
+                <ScalarProperty Name="ID_Students" ColumnName="ID_Students" />
+                <ScalarProperty Name="Login" ColumnName="Login" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Role" ColumnName="Role" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Administrators">
+            <EntityTypeMapping TypeName="ITschoolModel.Administrators">
+              <MappingFragment StoreEntitySet="Administrators">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Middle_name" ColumnName="Middle_name" />
+                <ScalarProperty Name="Date_of_birth" ColumnName="Date_of_birth" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Phone_number" ColumnName="Phone_number" />
+                <ScalarProperty Name="Date_career_start" ColumnName="Date_career_start" />
+                <ScalarProperty Name="ID_Documents" ColumnName="ID_Documents" />
+                <ScalarProperty Name="ID_RegistrationAddress" ColumnName="ID_RegistrationAddress" />
+                <ScalarProperty Name="ID_ResidenceAddress" ColumnName="ID_ResidenceAddress" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Courses">
+            <EntityTypeMapping TypeName="ITschoolModel.Courses">
+              <MappingFragment StoreEntitySet="Courses">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Age_group" ColumnName="Age_group" />
+                <ScalarProperty Name="Difficulty_level" ColumnName="Difficulty_level" />
+                <ScalarProperty Name="Technologies" ColumnName="Technologies" />
+                <ScalarProperty Name="Required_skills" ColumnName="Required_skills" />
+                <ScalarProperty Name="Number_of_classes" ColumnName="Number_of_classes" />
+                <ScalarProperty Name="Cost" ColumnName="Cost" />
+                <ScalarProperty Name="Min_number_of_places" ColumnName="Min_number_of_places" />
+                <ScalarProperty Name="Max_number_of_places" ColumnName="Max_number_of_places" />
+                <ScalarProperty Name="Certificate" ColumnName="Certificate" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Documents">
+            <EntityTypeMapping TypeName="ITschoolModel.Documents">
+              <MappingFragment StoreEntitySet="Documents">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Passport_series" ColumnName="Passport_series" />
+                <ScalarProperty Name="Passport_number" ColumnName="Passport_number" />
+                <ScalarProperty Name="Date_of_issue" ColumnName="Date_of_issue" />
+                <ScalarProperty Name="Issued" ColumnName="Issued" />
+                <ScalarProperty Name="Unit_code" ColumnName="Unit_code" />
+                <ScalarProperty Name="INN" ColumnName="INN" />
+                <ScalarProperty Name="SNILS" ColumnName="SNILS" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Groups">
+            <EntityTypeMapping TypeName="ITschoolModel.Groups">
+              <MappingFragment StoreEntitySet="Groups">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Guardians">
+            <EntityTypeMapping TypeName="ITschoolModel.Guardians">
+              <MappingFragment StoreEntitySet="Guardians">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Middle_name" ColumnName="Middle_name" />
+                <ScalarProperty Name="Date_of_birth" ColumnName="Date_of_birth" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Phone_number" ColumnName="Phone_number" />
+                <ScalarProperty Name="ID_Documents" ColumnName="ID_Documents" />
+                <ScalarProperty Name="ID_RegistrationAddress" ColumnName="ID_RegistrationAddress" />
+                <ScalarProperty Name="ID_ResidenceAddress" ColumnName="ID_ResidenceAddress" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RegistrationAddress">
+            <EntityTypeMapping TypeName="ITschoolModel.RegistrationAddress">
+              <MappingFragment StoreEntitySet="RegistrationAddress">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="Region" ColumnName="Region" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="District" ColumnName="District" />
+                <ScalarProperty Name="Street" ColumnName="Street" />
+                <ScalarProperty Name="House" ColumnName="House" />
+                <ScalarProperty Name="Entrance" ColumnName="Entrance" />
+                <ScalarProperty Name="Flat" ColumnName="Flat" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Requests">
+            <EntityTypeMapping TypeName="ITschoolModel.Requests">
+              <MappingFragment StoreEntitySet="Requests">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Contract" ColumnName="Contract" />
+                <ScalarProperty Name="Date_of_creation" ColumnName="Date_of_creation" />
+                <ScalarProperty Name="ID_Students" ColumnName="ID_Students" />
+                <ScalarProperty Name="ID_Courses" ColumnName="ID_Courses" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ResidenceAddress">
+            <EntityTypeMapping TypeName="ITschoolModel.ResidenceAddress">
+              <MappingFragment StoreEntitySet="ResidenceAddress">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="Region" ColumnName="Region" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="District" ColumnName="District" />
+                <ScalarProperty Name="Street" ColumnName="Street" />
+                <ScalarProperty Name="House" ColumnName="House" />
+                <ScalarProperty Name="Entrance" ColumnName="Entrance" />
+                <ScalarProperty Name="Flat" ColumnName="Flat" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Schedule">
+            <EntityTypeMapping TypeName="ITschoolModel.Schedule">
+              <MappingFragment StoreEntitySet="Schedule">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Start_time" ColumnName="Start_time" />
+                <ScalarProperty Name="End_time" ColumnName="End_time" />
+                <ScalarProperty Name="Lecture_hall" ColumnName="Lecture_hall" />
+                <ScalarProperty Name="Day_of_the_week" ColumnName="Day_of_the_week" />
+                <ScalarProperty Name="ID_Teachers" ColumnName="ID_Teachers" />
+                <ScalarProperty Name="ID_Courses" ColumnName="ID_Courses" />
+                <ScalarProperty Name="ID_Groups" ColumnName="ID_Groups" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Students">
+            <EntityTypeMapping TypeName="ITschoolModel.Students">
+              <MappingFragment StoreEntitySet="Students">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Middle_name" ColumnName="Middle_name" />
+                <ScalarProperty Name="Date_of_birth" ColumnName="Date_of_birth" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Phone_number" ColumnName="Phone_number" />
+                <ScalarProperty Name="ID_Documents" ColumnName="ID_Documents" />
+                <ScalarProperty Name="ID_RegistrationAddress" ColumnName="ID_RegistrationAddress" />
+                <ScalarProperty Name="ID_ResidenceAddress" ColumnName="ID_ResidenceAddress" />
+                <ScalarProperty Name="ID_Guardians" ColumnName="ID_Guardians" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="ITschoolModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Teachers">
+            <EntityTypeMapping TypeName="ITschoolModel.Teachers">
+              <MappingFragment StoreEntitySet="Teachers">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Middle_name" ColumnName="Middle_name" />
+                <ScalarProperty Name="Date_of_birth" ColumnName="Date_of_birth" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Phone_number" ColumnName="Phone_number" />
+                <ScalarProperty Name="Date_career_start" ColumnName="Date_career_start" />
+                <ScalarProperty Name="ID_Documents" ColumnName="ID_Documents" />
+                <ScalarProperty Name="ID_RegistrationAddress" ColumnName="ID_RegistrationAddress" />
+                <ScalarProperty Name="ID_ResidenceAddress" ColumnName="ID_ResidenceAddress" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="StudetsGroups" TypeName="ITschoolModel.StudetsGroups" StoreEntitySet="StudetsGroups">
+            <EndProperty Name="Groups">
+              <ScalarProperty Name="ID" ColumnName="ID_Groups" />
+            </EndProperty>
+            <EndProperty Name="Students">
+              <ScalarProperty Name="ID" ColumnName="ID_Students" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="TeachersCourses" TypeName="ITschoolModel.TeachersCourses" StoreEntitySet="TeachersCourses">
+            <EndProperty Name="Courses">
+              <ScalarProperty Name="ID" ColumnName="ID_Courses" />
+            </EndProperty>
+            <EndProperty Name="Teachers">
+              <ScalarProperty Name="ID" ColumnName="ID_Teachers" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

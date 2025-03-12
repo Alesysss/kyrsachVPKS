@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="ae25bbcfda90467c80ce96106d25497d" Name="Diagram1">
+        <EntityTypeShape EntityType="ITschoolModel.Accounts" Width="1.5" PointX="8.25" PointY="6.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ITschoolModel.Administrators" Width="1.5" PointX="3" PointY="6.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ITschoolModel.Courses" Width="1.5" PointX="3.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ITschoolModel.Documents" Width="1.5" PointX="3.75" PointY="16.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ITschoolModel.Groups" Width="1.5" PointX="6" PointY="12" IsExpanded="true" />
+        <EntityTypeShape EntityType="ITschoolModel.Guardians" Width="1.5" PointX="6" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="ITschoolModel.RegistrationAddress" Width="1.5" PointX="0.75" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ITschoolModel.Requests" Width="1.5" PointX="13.5" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ITschoolModel.ResidenceAddress" Width="1.5" PointX="3.75" PointY="20.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ITschoolModel.Schedule" Width="1.5" PointX="8.25" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ITschoolModel.Students" Width="1.5" PointX="11.25" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ITschoolModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ITschoolModel.Teachers" Width="1.5" PointX="6" PointY="1.75" IsExpanded="true" />
+        <AssociationConnector Association="ITschoolModel.FK_Accounts_Administrators" ManuallyRouted="false" />
+        <AssociationConnector Association="ITschoolModel.FK_Accounts_Students" ManuallyRouted="false" />
+        <AssociationConnector Association="ITschoolModel.FK_Accounts_Teachers" ManuallyRouted="false" />
+        <AssociationConnector Association="ITschoolModel.FK_Administrators_Documents" ManuallyRouted="false" />
+        <AssociationConnector Association="ITschoolModel.FK_Administrators_RegistrationAddress" ManuallyRouted="false" />
+        <AssociationConnector Association="ITschoolModel.FK_Administrators_ResidenceAddress" ManuallyRouted="false" />
+        <AssociationConnector Association="ITschoolModel.FK_Requests_Courses" ManuallyRouted="false" />
+        <AssociationConnector Association="ITschoolModel.FK_Schedule_Courses" ManuallyRouted="false" />
+        <AssociationConnector Association="ITschoolModel.FK_Guardians_Documents" ManuallyRouted="false" />
+        <AssociationConnector Association="ITschoolModel.FK_Students_Documents" ManuallyRouted="false" />
+        <AssociationConnector Association="ITschoolModel.FK_Teachers_Documents" ManuallyRouted="false" />
+        <AssociationConnector Association="ITschoolModel.FK_Schedule_Groups" ManuallyRouted="false" />
+        <AssociationConnector Association="ITschoolModel.FK_Guardians_RegistrationAddress" ManuallyRouted="false" />
+        <AssociationConnector Association="ITschoolModel.FK_Guardians_ResidenceAddress" ManuallyRouted="false" />
+        <AssociationConnector Association="ITschoolModel.FK_Students_Guardians" ManuallyRouted="false" />
+        <AssociationConnector Association="ITschoolModel.FK_Students_RegistrationAddress" ManuallyRouted="false" />
+        <AssociationConnector Association="ITschoolModel.FK_Teachers_RegistrationAddress" ManuallyRouted="false" />
+        <AssociationConnector Association="ITschoolModel.FK_Requests_Students" ManuallyRouted="false" />
+        <AssociationConnector Association="ITschoolModel.FK_Students_ResidenceAddress" ManuallyRouted="false" />
+        <AssociationConnector Association="ITschoolModel.FK_Teachers_ResidenceAddress" ManuallyRouted="false" />
+        <AssociationConnector Association="ITschoolModel.FK_Schedule_Teachers" ManuallyRouted="false" />
+        <AssociationConnector Association="ITschoolModel.StudetsGroups" ManuallyRouted="false" />
+        <AssociationConnector Association="ITschoolModel.TeachersCourses" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

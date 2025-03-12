@@ -1,0 +1,512 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{DF74D4DF-3E7F-42C6-AD91-CB211ED2F74E}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>kyrsachVPKS</RootNamespace>
+    <AssemblyName>kyrsachVPKS</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationFramework.Aero2" />
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Classes\UserSession.cs" />
+    <Compile Include="Entities\Accounts.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Administrators.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Courses.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Documents.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Groups.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Guardians.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Model1.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Model1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Model1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\RegistrationAddress.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Requests.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\ResidenceAddress.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Schedule.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Students.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\sysdiagrams.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Teachers.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Administrator\AdminAddKyrs.xaml.cs">
+      <DependentUpon>AdminAddKyrs.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Administrator\AdminAdmin.xaml.cs">
+      <DependentUpon>AdminAdmin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Administrator\AdminDob.xaml.cs">
+      <DependentUpon>AdminDob.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Administrator\AdminDobAdmin.xaml.cs">
+      <DependentUpon>AdminDobAdmin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Administrator\AdminDobPrepod.xaml.cs">
+      <DependentUpon>AdminDobPrepod.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Administrator\AdminKyrsi.xaml.cs">
+      <DependentUpon>AdminKyrsi.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Administrator\AdminPrepodi.xaml.cs">
+      <DependentUpon>AdminPrepodi.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Administrator\AdminProfil.xaml.cs">
+      <DependentUpon>AdminProfil.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Administrator\AdminProfilZaiavki.xaml.cs">
+      <DependentUpon>AdminProfilZaiavki.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Administrator\AdminProsmAllGryppi.xaml.cs">
+      <DependentUpon>AdminProsmAllGryppi.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Administrator\AdminProsmGryppi.xaml.cs">
+      <DependentUpon>AdminProsmGryppi.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Administrator\AdminProsmPrepodDannie.xaml.cs">
+      <DependentUpon>AdminProsmPrepodDannie.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Administrator\AdminProsmPrepodRaspis.xaml.cs">
+      <DependentUpon>AdminProsmPrepodRaspis.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Administrator\AdminProsmPrepodZaiavki.xaml.cs">
+      <DependentUpon>AdminProsmPrepodZaiavki.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Administrator\AdminProsmStudDannie.xaml.cs">
+      <DependentUpon>AdminProsmStudDannie.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Administrator\AdminProsmStudZaiavki.xaml.cs">
+      <DependentUpon>AdminProsmStudZaiavki.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Administrator\AdminRaspisanie.xaml.cs">
+      <DependentUpon>AdminRaspisanie.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Administrator\AdminGryppi.xaml.cs">
+      <DependentUpon>AdminGryppi.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Administrator\AdminRaspisanieAdd.xaml.cs">
+      <DependentUpon>AdminRaspisanieAdd.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Administrator\AdminRaspisanieUpd.xaml.cs">
+      <DependentUpon>AdminRaspisanieUpd.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Administrator\AdminUpdKyrs.xaml.cs">
+      <DependentUpon>AdminUpdKyrs.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Administrator\AdminZaiavki.xaml.cs">
+      <DependentUpon>AdminZaiavki.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Administrator\AdminZaiavkiDogovor.xaml.cs">
+      <DependentUpon>AdminZaiavkiDogovor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Student\StudKyrsi.xaml.cs">
+      <DependentUpon>StudKyrsi.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Student\StudProfil.xaml.cs">
+      <DependentUpon>StudProfil.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Student\StudProsmotrKyrsi.xaml.cs">
+      <DependentUpon>StudProsmotrKyrsi.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Student\StudProsmotrPrepod.xaml.cs">
+      <DependentUpon>StudProsmotrPrepod.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Student\StudZaiavki.xaml.cs">
+      <DependentUpon>StudZaiavki.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Teacher\PrepodAddKyrs.xaml.cs">
+      <DependentUpon>PrepodAddKyrs.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Teacher\PrepodGryppi.xaml.cs">
+      <DependentUpon>PrepodGryppi.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Teacher\PrepodKyrsi.xaml.cs">
+      <DependentUpon>PrepodKyrsi.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Teacher\PrepodProfil.xaml.cs">
+      <DependentUpon>PrepodProfil.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Teacher\PrepodProfilZaiavki.xaml.cs">
+      <DependentUpon>PrepodProfilZaiavki.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Teacher\PrepodProsmotrGryppi.xaml.cs">
+      <DependentUpon>PrepodProsmotrGryppi.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Teacher\PrepodRaspisanie.xaml.cs">
+      <DependentUpon>PrepodRaspisanie.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Teacher\PrepodProsmotrStud.xaml.cs">
+      <DependentUpon>PrepodProsmotrStud.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Teacher\PrepodUpdKyrs.xaml.cs">
+      <DependentUpon>PrepodUpdKyrs.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Teacher\PrepodZaiavki.xaml.cs">
+      <DependentUpon>PrepodZaiavki.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Users\Registracia.xaml.cs">
+      <DependentUpon>Registracia.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\StringToVisibilityConverter.cs" />
+    <Page Include="Windows\Administrator\AdminAddKyrs.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Administrator\AdminAdmin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Administrator\AdminDob.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Administrator\AdminDobAdmin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Administrator\AdminDobPrepod.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Administrator\AdminKyrsi.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Administrator\AdminPrepodi.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Administrator\AdminProfil.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Administrator\AdminProfilZaiavki.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Administrator\AdminProsmAllGryppi.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Administrator\AdminProsmGryppi.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Administrator\AdminProsmPrepodDannie.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Administrator\AdminProsmPrepodRaspis.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Administrator\AdminProsmPrepodZaiavki.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Administrator\AdminProsmStudDannie.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Administrator\AdminProsmStudZaiavki.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Administrator\AdminRaspisanie.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Administrator\AdminGryppi.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Administrator\AdminRaspisanieAdd.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Administrator\AdminRaspisanieUpd.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Administrator\AdminUpdKyrs.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Administrator\AdminZaiavki.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Administrator\AdminZaiavkiDogovor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Student\StudKyrsi.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Student\StudProfil.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Student\StudProsmotrKyrsi.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Student\StudProsmotrPrepod.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Student\StudZaiavki.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Teacher\PrepodAddKyrs.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Teacher\PrepodGryppi.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Teacher\PrepodKyrsi.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Teacher\PrepodProfil.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Teacher\PrepodProfilZaiavki.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Teacher\PrepodProsmotrGryppi.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Teacher\PrepodRaspisanie.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Teacher\PrepodProsmotrStud.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Teacher\PrepodUpdKyrs.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Teacher\PrepodZaiavki.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Users\Avtorizacia.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Windows\Users\Avtorizacia.xaml.cs">
+      <DependentUpon>Avtorizacia.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="Windows\Users\Registracia.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EntityDeploy Include="Entities\Model1.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Entities\Model1.edmx.diagram">
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Todo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\dob.png" />
+    <Resource Include="Images\dobW.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Person.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\PersonW.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\filesW.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\kyrsi.png" />
+    <Resource Include="Images\kyrsiW.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\yvedoml.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\exit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\files.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\nazad.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\raspis.png" />
+    <Resource Include="Images\raspisW.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\gryppi.png" />
+    <Resource Include="Images\gryppiW.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\prepodi.png" />
+    <Resource Include="Images\prepodiW.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\admin.png" />
+    <Resource Include="Images\adminW.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\stud.png" />
+    <Resource Include="Images\studW.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Entities\Model1.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Model1.Context.cs</LastGenOutput>
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Content>
+    <Content Include="Entities\Model1.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
